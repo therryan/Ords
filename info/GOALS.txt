@@ -1,14 +1,25 @@
 .next:
 	
 	- Temporary file, in case of the user quitting early
-	- Really implement Definitions (e.g. in 'ask')	
+	- Really implement Definitions (e.g. in 'ask')
+	- Folders/'collections' of dicts (ie. data/french/verbs, could be accessed by saying french.verbs?)
+	- Import/Export (to/from Genius.app, for example)
+	- Support asking questions based on tags, categories, languages
+    
 	
 	- QT GUI?
 
 0.4:
 	- Settings
+	- Populate README
+	- Conjugation of verbs
+	- Merging dicts
 
 0.5:
+
+	- A CLI argument-interface
+	- Editing capabilities
+	- Comments (e.g. "faire <kommentti>(epäsäännöllinen)</kommentti>")
 
 0.6:
 
