@@ -13,7 +13,7 @@
 #include "def_term.h"
 
 #include "../utils/utils.h"
-
+class Dictionary;
 class Question 
 {
 	private:
