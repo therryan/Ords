@@ -14,3 +14,4 @@
 	- Doesn't display empty 'Definitions of X' messages when there is no content
 	- Informs the user about the files that are saved
 	- Dictionary::size() implemented
+	- Reverse ask implemented

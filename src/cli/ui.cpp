@@ -40,7 +40,9 @@ bool parse(string input)
 		else if (tokens[0] == "new")	{ui::newDict();}
 		else if (tokens[0] == "use")	{ui::use();}
 		else if (tokens[0] == "open")	{ui::open();}
-		else if (tokens[0] == "ask")	{ui::ask();}
+		
+		else if (tokens[0] == "rask")	{ui::ask(true);}	// To reverse
+		else if (tokens[0] == "ask")	{ui::ask(false);}	// or not
 		
 		else
 		{

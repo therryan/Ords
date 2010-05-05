@@ -2,11 +2,17 @@
 
 namespace ui
 {
-	void ask()
+	void ask(bool reverse)
 	{
 		srand(time(NULL));
 		
 		Question quest = Collection::getQuestion();
+		
+		if (reverse == true)
+		{
+			quest.setReverse(true);
+		}
+		
 		int origSize = quest.size();
 
 		if (quest.size() == 0)
@@ -91,7 +97,11 @@ namespace ui
 			{
 				DefinitionTerm dt;
 				again = defDt(dt);
-				Collection::add(dt);
+				
+				if (again == true)
+				{
+					Collection::add(dt);
+				}
 			}
 		}
 		else if (which == 1 || choice == "def" || choice == "definition" ||
@@ -102,7 +112,11 @@ namespace ui
 			{
 				Definition def;
 				again = defDefinition(def);
-				Collection::add(def);
+				
+				if (again == true)
+				{
+					Collection::add(def);
+				}
 			}
 		}
 		else
@@ -216,9 +230,7 @@ namespace ui
 			cout << error << endl;
 		}
 		
-		cout << "Definitions of words:\n"
-			 << defs.str() << endl << endl << "Definitions of terms:\n"
-		 	 << dts.str() << endl;
+		cout << defs.str() << endl << dts.str() << endl;
 	}
 	
 	void help()

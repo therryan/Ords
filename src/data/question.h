@@ -23,11 +23,16 @@ class Question
 
 		int _defElem;	// Points to the current Def-element
 		int _dtElem;	// Points to the current DT-element
+		
+		bool _reverse;
 
 	public:
 		Question(Dictionary dict);
-		
+				
 		int size();
+		
+		void setReverse(bool reverse);
+		
 	 	string ask();		// Returns the question
 		string answer();	// Return the answer
 		void remove();		// Removes the previously asked question

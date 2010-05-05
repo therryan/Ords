@@ -120,25 +120,16 @@ void Dictionary::add(string word, string translation,
 string Dictionary::repr()
 {
 	string defs;
-	
-	if (_defDict.size() > 0) // Only if there are some defs,
-	{						 // display the following content
-		defs += "Definitions of words:\n\n";
-	
-		for (unsigned int i = 0; i < _defDict.size(); i++)
-		{
-			defs += _defDict[i].repr();
-		}
-	}
-	
-	if (_dtDict.size() > 0)
+		
+	for (unsigned int i = 0; i < _defDict.size(); i++)
 	{
-		defs += "Definitions of terms:\n\n";
-	
-		for (unsigned int i = 0; i < _dtDict.size(); i++)
-		{
-			defs += _dtDict[i].repr();
-		}
+		defs += _defDict[i].repr();
 	}
+
+	for (unsigned int i = 0; i < _dtDict.size(); i++)
+	{
+		defs += _dtDict[i].repr();
+	}
+
 	return defs;
 }
