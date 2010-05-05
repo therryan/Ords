@@ -22,7 +22,7 @@ class Settings
 		
 		static string configPath();
 		static string helpPath();
-		static string dataPath();
+		static string dataPath(string file = "");
 		static float version();
 		static string versionInfo();
 };

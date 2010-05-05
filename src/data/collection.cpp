@@ -49,7 +49,10 @@ void Collection::load(string file)
 	Dictionary dict(file);
 	dict.load(file);
 	
-	_collection.push_back(dict);
+	if(dict.size() > 0)
+	{
+		_collection.push_back(dict);
+	}
 }
 
 // Just calls save() on all the dicts, initiating the chain of save()-calls
@@ -109,7 +112,7 @@ string Collection::dictionaries()
 	}
 	else // If there are no dictionaries
 	{
-		return "There are no dictionaries!";
+		return "There are no dictionaries!\n";
 	}
 }
 
@@ -122,6 +125,6 @@ string Collection::definitions()
 	}
 	else
 	{
-		return "There are no dictionaries!";
+		return "There are no dictionaries!\n";
 	}
 }

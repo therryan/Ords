@@ -13,10 +13,16 @@ string Settings::configPath()
 	return "../ords/ords.conf";
 }
 
-string Settings::dataPath()
+string Settings::dataPath(string file)
 {
-	//return rootPath + "data/";
-	return "../data/";
+	if (file.length() == 0)
+	{
+		return "../data/";
+	}
+	else
+	{
+		return "../data/" + file + ".ords";
+	}
 }
 
 float Settings::version()

@@ -21,6 +21,9 @@ class DefinitionTerm
 		string getTerm();
 		string getDescr();
 		
+		void setTerm(string term);
+		void setDescr(string descr);
+		
 		string save();	// In the callchain for Collection::save()
 		
 		string repr();	// Smart representation

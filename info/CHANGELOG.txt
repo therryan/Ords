@@ -1,5 +1,5 @@
 2010-04-30:
-	- ADD: 'Question'-class @(question.h & question.cpp)
+	- Added the Question-class (data/question.h/cpp)
 
 2010-05-4:
 	- Finished the Question-class and switched 'ask()' to use it
@@ -9,3 +9,8 @@
 	- Git working fine
 	- More platfrom-independent file handling
 	- Complains if given a nonexistent command
+	- Settings::dataPath() now has an optional argument 'file', which, if supplied, returns the whole path
+	- Continuous input mode
+	- Doesn't display empty 'Definitions of X' messages when there is no content
+	- Informs the user about the files that are saved
+	- Dictionary::size() implemented

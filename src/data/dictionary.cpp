@@ -7,7 +7,7 @@ Dictionary::Dictionary(string title)
 
 Dictionary::Dictionary(Definition def, string title)
 {
-	_dict.push_back(def);
+	_defDict.push_back(def);
 	_dictTitle = title;
 }
 
@@ -24,12 +24,17 @@ string Dictionary::getTitle()
 
 vector<Definition> Dictionary::getDefDict()
 {
-	return _dict;
+	return _defDict;
 }
 
 vector<DefinitionTerm> Dictionary::getDtDict()
 {
 	return _dtDict;
+}
+
+int Dictionary::size()
+{
+	return _dtDict.size() + _defDict.size();
 }
 
 void Dictionary::load(string file)
@@ -38,8 +43,7 @@ void Dictionary::load(string file)
 	
 	try
 	{
-		data = readData(Settings::dataPath() +
-				    	file + ".ords");
+		data = readData(Settings::dataPath(file));
 	}
 	
 	catch (string error)
@@ -68,7 +72,7 @@ void Dictionary::load(string file)
 				// Defs are in the form of X:Y;
 				else
 				{
-					_dict.push_back(Definition(word[0], word[1]));
+					_defDict.push_back(Definition(word[0], word[1]));
 				}
 			}						
 		}				
@@ -80,9 +84,9 @@ void Dictionary::save()
 {
 	string data;
 	
-	for (unsigned int i = 0; i < _dict.size(); i++)
+	for (unsigned int i = 0; i < _defDict.size(); i++)
 	{
-		data += _dict[i].save();
+		data += _defDict[i].save();
 	}
 	
 	for (unsigned int i = 0; i < _dtDict.size(); i++)
@@ -90,12 +94,12 @@ void Dictionary::save()
 		data += _dtDict[i].save();
 	}
 	
-	writeData(Settings::dataPath() + _dictTitle + ".ords", data);
+	writeData(Settings::dataPath(_dictTitle), data);
 }
 
 void Dictionary::add(Definition def)
 {
-	_dict.push_back(def);
+	_defDict.push_back(def);
 }
 
 void Dictionary::add(DefinitionTerm dt)
@@ -109,7 +113,7 @@ void Dictionary::add(string word, string translation,
 	Definition def;
 	def.add(word, langWord);
 	def.add(translation, langTranslation);
-	_dict.push_back(def);
+	_defDict.push_back(def);
 }
 
 // Calls repr() on all defs and dts
@@ -117,19 +121,24 @@ string Dictionary::repr()
 {
 	string defs;
 	
-	defs += "Definitions of words:\n\n";
+	if (_defDict.size() > 0) // Only if there are some defs,
+	{						 // display the following content
+		defs += "Definitions of words:\n\n";
 	
-	for (unsigned int i = 0; i < _dict.size(); i++)
-	{
-		defs += _dict[i].repr();
+		for (unsigned int i = 0; i < _defDict.size(); i++)
+		{
+			defs += _defDict[i].repr();
+		}
 	}
 	
-	defs += "Definitions of terms:\n\n";
-	
-	for (unsigned int i = 0; i < _dtDict.size(); i++)
+	if (_dtDict.size() > 0)
 	{
-		defs += _dtDict[i].repr();
-	}
+		defs += "Definitions of terms:\n\n";
 	
+		for (unsigned int i = 0; i < _dtDict.size(); i++)
+		{
+			defs += _dtDict[i].repr();
+		}
+	}
 	return defs;
 }

@@ -17,7 +17,7 @@ class Dictionary
 {
 	private:
 		string _dictTitle;				// The title (filename) of the dict
-		vector<Definition> _dict;		// One vector for each of the two types
+		vector<Definition> _defDict;		// One vector for each of the two types
 		vector<DefinitionTerm> _dtDict;
 		
 	public:
@@ -28,6 +28,8 @@ class Dictionary
 		string getTitle();
 		vector<Definition> getDefDict();
 		vector<DefinitionTerm> getDtDict();
+		
+		int size();
 		
 		void load(string file);
 		void save();	// Collection::save() calls each dict's save() function

@@ -86,12 +86,24 @@ namespace ui
 		
 		if (which == 0 || choice == "dt" || choice == "term")
 		{
-			Collection::add(defDt());
+			bool again = true;
+			while (again == true)
+			{
+				DefinitionTerm dt;
+				again = defDt(dt);
+				Collection::add(dt);
+			}
 		}
 		else if (which == 1 || choice == "def" || choice == "definition" ||
-							   choice == "word")
+				choice == "word")
 		{
-			Collection::add(defDefinition());
+			bool again = true;
+			while (again == true)
+			{
+				Definition def;
+				again = defDefinition(def);
+				Collection::add(def);
+			}
 		}
 		else
 		{
@@ -99,15 +111,15 @@ namespace ui
 		}
 	}
 	
-	Definition defDefinition()
+	bool defDefinition(Definition &def)
 	{
 		string word, lang;
-		Definition def;
 		
 		while (true)
 		{		
 			cout << "Enter a word: ";
 			getline(cin, word);
+			
 			if (word.length() == 0)
 			{
 				break;
@@ -115,6 +127,7 @@ namespace ui
 		
 			cout << "Enter the language: ";
 			getline(cin, lang);
+			
 			if (lang.length() == 0)
 			{
 				def.add(word);
@@ -126,23 +139,30 @@ namespace ui
 		}
 	    cout << def.repr();
 		
-		return def;
+		return true;
 	}
 	
-	DefinitionTerm defDt()
+	bool defDt(DefinitionTerm &dt)
 	{
 		string term, descr;
 		
 		cout << "Enter the term" << endl;
 		getline(cin, term);
 		
+		if (term.length() == 0)
+		{
+			return false;
+		}
+		
 		cout << "Enter the description" << endl;
 		getline(cin, descr);
+	
+		dt.setTerm(term);
+		dt.setDescr(descr);
 		
-		DefinitionTerm dt(term, descr);
 		cout << dt.repr();
 		
-		return dt;
+		return true;
 	}
 	
 	void list()
@@ -161,9 +181,8 @@ namespace ui
 		
 		try
 		{
-			string data = readData(Settings::dataPath() +
-						  		   file + ".ords");
-						
+			string data = readData(Settings::dataPath(file));
+									
 			vector<string> dict = split(data, "\n");
 			cout << endl;
 						

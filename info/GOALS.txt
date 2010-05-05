@@ -1,11 +1,13 @@
 .next:
+	
+	- Temporary file, in case of the user quitting early
 
 0.3:
-	- Settings
 	- Reverse ask
 	- More fluent input
 
 0.4:
+	- Settings
 
 0.5:
 

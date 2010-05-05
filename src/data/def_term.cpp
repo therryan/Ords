@@ -19,6 +19,16 @@ string DefinitionTerm::getDescr()
 	return _descr;
 }
 
+void DefinitionTerm::setTerm(string term)
+{
+	_term = term;
+}
+
+void DefinitionTerm::setDescr(string descr)
+{
+	_descr = descr;
+}
+
 /* The file format for DefinitionTerms is this:
 
  *		TERM:>DESCRIPTION;	as in
