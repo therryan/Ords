@@ -58,6 +58,7 @@ void Collection::save()
 	for (unsigned int i = 0; i < _collection.size(); i++)
 	{
 		_collection[i].save();
+		cout << "Saving '" << _collection[i].getTitle() << "'" << endl;
 	}
 }
 
@@ -94,11 +95,11 @@ string Collection::dictionaries()
 	{		
 		if (_currentDict == (int)i)
 		{
-			output += _collection[i].getTitle() + " (Current dictionary)\n";
+			output += "* " + _collection[i].getTitle() + "\n";
 		}
 		else
 		{
-			output += _collection[i].getTitle() + "\n";
+			output += "  " + _collection[i].getTitle() + "\n";
 		}
 	}
 	

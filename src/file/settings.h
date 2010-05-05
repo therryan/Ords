@@ -14,11 +14,12 @@ class Settings
 	private:
 		Settings();
 		
-		static const string rootPath;
 		static const float versionNumber;
 		static const string versionText;
 				
 	public:
+		static void init();
+		
 		static string configPath();
 		static string helpPath();
 		static string dataPath();

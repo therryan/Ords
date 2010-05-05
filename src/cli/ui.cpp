@@ -30,17 +30,22 @@ bool parse(string input)
 	if (tokens.size() == 1)
 	{	
 		if (tokens[0] == "exit") 	{return false;}	// Fall back to main()
-		if (tokens[0] == "def" ||
+		else if (tokens[0] == "def" ||
 			tokens[0] == "define")	{ui::define();}
 		
-		if (tokens[0] == "ls" ||
+		else if (tokens[0] == "ls" ||
 			tokens[0] == "list")	{ui::list();}
 			
-		if (tokens[0] == "lsd")		{ui::listDicts();}
-		if (tokens[0] == "new")		{ui::newDict();}
-		if (tokens[0] == "use")		{ui::use();}
-		if (tokens[0] == "open")	{ui::open();}
-		if (tokens[0] == "ask")		{ui::ask();}
+		else if (tokens[0] == "lsd")		{ui::listDicts();}
+		else if (tokens[0] == "new")		{ui::newDict();}
+		else if (tokens[0] == "use")		{ui::use();}
+		else if (tokens[0] == "open")	{ui::open();}
+		else if (tokens[0] == "ask")		{ui::ask();}
+		else
+		{
+			cout << "Command '" << tokens[0] << "' doesn't exist. Type help " <<
+				"to see all the commands." << endl;
+		}
 	}
 	else if (tokens.size() > 1)
 	{
@@ -49,11 +54,16 @@ bool parse(string input)
 			if (tokens[1] == "-d")	{ui::listDicts();}
 			else					{ui::listFile(tokens[1]);}
 		}
-		if (tokens[0] == "new")		{ui::newDict(tokens[1]);}
-		if (tokens[0] == "use")		{ui::use(tokens[1]);}
-		if (tokens[0] == "open")	{ui::open(tokens[1]);}
-		if (tokens[0] == "def" ||
+		else if (tokens[0] == "new")		{ui::newDict(tokens[1]);}
+		else if (tokens[0] == "use")		{ui::use(tokens[1]);}
+		else if (tokens[0] == "open")	{ui::open(tokens[1]);}
+		else if (tokens[0] == "def" ||
 			tokens[0] == "define")	{ui::define(tokens[1]);}
+		else
+		{
+			cout << "Command '" << tokens[0] << "' doesn't exist. Type help " <<
+				"to see all commands." << endl;
+		}
 	}
 	return true;
 }

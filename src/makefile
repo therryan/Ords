@@ -44,4 +44,4 @@ utils.o: utils/utils.cpp utils/utils.h
 	g++ -Wall -pedantic -c utils/utils.cpp
 	
 clean:
-	rm ords ords.o file.o plaintext.o settings.o args.o ui.o uifuncs.o init.o definition.o def_term.o dictionary.o question.o collection.o utils.o
+	rm ords.o file.o plaintext.o settings.o args.o ui.o uifuncs.o init.o definition.o def_term.o dictionary.o question.o collection.o utils.o

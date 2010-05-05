@@ -2,39 +2,6 @@
 
 namespace ui
 {
-	/*
-	void ask()
-	{
-		srand(time(NULL));
-		
-		vector<Definition> defs;		
-		vector<DefinitionTerm> dts;
-		
-		Collection::getDict(defs, dts);
-			
-		if (defs.size() == 0 && dts.size() == 0)
-		{
-			cout << "There are no dictionaries!" << endl;
-		}
-		
-		while (dts.size() > 0)
-		{
-			int i = getRand(dts.size());
-			
-			cout << dts.size() << endl;
-			cout << dts[i].getTerm() << endl;
-			string answer;
-			getline(cin, answer);
-			
-			if (answer == dts[i].getDescr())
-			{
-				cout << "Correct!" << endl;
-				dts.erase(dts.begin() + i);
-			}
-		}
-	}*/
-
-
 	void ask()
 	{
 		srand(time(NULL));
@@ -119,12 +86,12 @@ namespace ui
 		
 		if (which == 0 || choice == "dt" || choice == "term")
 		{
-			Collection::add(def_dt());
+			Collection::add(defDt());
 		}
 		else if (which == 1 || choice == "def" || choice == "definition" ||
 							   choice == "word")
 		{
-			Collection::add(def_d());
+			Collection::add(defDefinition());
 		}
 		else
 		{
@@ -132,7 +99,7 @@ namespace ui
 		}
 	}
 	
-	Definition def_d()
+	Definition defDefinition()
 	{
 		string word, lang;
 		Definition def;
@@ -162,7 +129,7 @@ namespace ui
 		return def;
 	}
 	
-	DefinitionTerm def_dt()
+	DefinitionTerm defDt()
 	{
 		string term, descr;
 		
@@ -180,12 +147,12 @@ namespace ui
 	
 	void list()
 	{
-		cout << Collection::definitions() << endl;
+		cout << Collection::definitions();
 	}
 	
 	void listDicts()
 	{
-		cout << Collection::dictionaries() << endl;
+		cout << Collection::dictionaries();
 	}
 	
 	void listFile(string file)

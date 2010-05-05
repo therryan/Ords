@@ -21,8 +21,8 @@ namespace ui
 	void newDict(string title = "");
 	void use(string title = "");
 	void define(string choice = "");
-		Definition def_d();
-		DefinitionTerm def_dt();
+		Definition defDefinition();
+		DefinitionTerm defDt();
 		
 	void list();
 		void listFile(string file);

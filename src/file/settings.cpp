@@ -1,24 +1,22 @@
 #include "settings.h"
 
-// WARNING! Must be changed manually, hardcoded for now!
-//const string Settings::rootPath = "/Users/teemu/Koodaus/Software/Ords/";
-const string Settings::rootPath = "/home/teemuvas/Tieva1/ords/"; // Is this correct??
-const string Settings::versionText = "04.5.2010";
+const string Settings::versionText = "05.05.2010";
 const float Settings::versionNumber = 0.2;
 
 string Settings::helpPath()
 {
-	return rootPath + ".ords/help";
+	return "../ords/help";
 }
 
 string Settings::configPath()
 {
-	return rootPath + ".ords/ords.conf";
+	return "../ords/ords.conf";
 }
 
 string Settings::dataPath()
 {
-	return rootPath + "data/";
+	//return rootPath + "data/";
+	return "../data/";
 }
 
 float Settings::version()
