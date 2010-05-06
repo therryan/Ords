@@ -14,6 +14,7 @@
 	- Populate README
 	- Conjugation of verbs
 	- Merging dicts
+	- Encoding problems?
 
 0.5:
 

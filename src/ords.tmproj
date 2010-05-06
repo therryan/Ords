@@ -5,6 +5,8 @@
 	<key>documents</key>
 	<array>
 		<dict>
+			<key>expanded</key>
+			<true/>
 			<key>name</key>
 			<string>src</string>
 			<key>regexFolderFilter</key>
@@ -13,6 +15,8 @@
 			<string></string>
 		</dict>
 		<dict>
+			<key>expanded</key>
+			<true/>
 			<key>name</key>
 			<string>data</string>
 			<key>regexFolderFilter</key>
@@ -21,6 +25,8 @@
 			<string>../data</string>
 		</dict>
 		<dict>
+			<key>expanded</key>
+			<true/>
 			<key>name</key>
 			<string>info</string>
 			<key>regexFolderFilter</key>
@@ -36,6 +42,12 @@
 			<key>sourceDirectory</key>
 			<string>../ords</string>
 		</dict>
+		<dict>
+			<key>filename</key>
+			<string>../README.txt</string>
+			<key>lastUsed</key>
+			<date>2010-05-05T17:34:07Z</date>
+		</dict>
 	</array>
 	<key>fileHierarchyDrawerWidth</key>
 	<integer>158</integer>
@@ -44,6 +56,6 @@
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{173, 4}, {856, 1174}}</string>
+	<string>{{234, 4}, {856, 1174}}</string>
 </dict>
 </plist>

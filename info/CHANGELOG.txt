@@ -16,3 +16,6 @@
 	- Dictionary::size() implemented
 	- Reverse ask implemented
 	! Version 0.3 RELEASED
+	
+2010-05-06:
+	- 'help'-command works and displays relevant information

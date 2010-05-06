@@ -235,7 +235,51 @@ namespace ui
 	
 	void help()
 	{
-		
+		cout << "\t" << "ask" << "\n"
+			 	<< "\t\tAsks all the definitions in the current dictionary\n"
+			
+			 << "\t" << "rask" << "\n" 
+			 	<< "\t\tAsks Y->X instead of X->Y\n"
+			
+			 << "\t" << "def, define [word|term]" << "\n" 
+				<< "\t\tDefine a new word or term. If no argument given, go\n"
+				<< "\t\tto continuous input mode\n"
+				
+			 << "\t" << "exit" << "\n"
+			 	<< "\t\tQuits the program, saving all files\n"
+			
+			 << "\t" << "help" << "\n"
+			 	<< "\t\tDisplays this message\n"
+			
+			 << "\t" << "list, ls [file]" << "\n"
+			 	<< "\t\tLists all definitions in the current dictionary.\n"
+				<< "\t\tIf the argument is given, list all the definitions\n"
+				<< "\t\tin that file\n"
+			
+			 << "\t" << "lsd|ls -d" << "\n"
+			 	<< "\t\tList dictionaries\n"
+			
+			 << "\t" << "new [title]" << "\n"
+			 	<< "\t\tOpens a new dictionary with the argument as the title.\n"
+				<< "\t\tIf no arguments are given, ask for the title\n"
+			
+			 << "\t" << "open [file]" << "\n"
+			 	<< "\t\tTries to open the file specified as the argument.\n"
+				<< "\t\tIf no argument is given, ask for the file to open\n"
+			
+			 << "\t" << "use [dictionary]" << "\n"
+			 	<< "\t\tSwitch the dictionary to 'dictionary'.\n"
+				<< "\t\tIf no argument is given, ask for the dictionary\n"
+			 
+			 << endl;
 	}
 }
 
+// {	
+// 	else if (tokens[0] == "new")	{ui::newDict();}
+// 	else if (tokens[0] == "use")	{ui::use();}
+// 	else if (tokens[0] == "open")	{ui::open();}
+
+// 	else if (tokens[0] == "new")	{ui::newDict(tokens[1]);}
+// 	else if (tokens[0] == "use")	{ui::use(tokens[1]);}
+// 	else if (tokens[0] == "open")	{ui::open(tokens[1]);}
