@@ -19,3 +19,4 @@
 	
 2010-05-06:
 	- 'help'-command works and displays relevant information
+	- If answered incorrectly, now asks whether the user was correct or not, in case (s)he made typos

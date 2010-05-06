@@ -53,7 +53,7 @@ bool parse(string input)
 	}
 	else if (tokens.size() > 1) // Cmds that have arguments (e.g. 'open test')
 	{
-		if (tokens[0] == "list")
+		if (tokens[0] == "list" || tokens[0] == "ls")
 		{
 			if (tokens[1] == "-d")	{ui::listDicts();}
 			else					{ui::listFile(tokens[1]);}

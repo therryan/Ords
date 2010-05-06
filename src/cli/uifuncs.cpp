@@ -30,13 +30,25 @@ namespace ui
 
 			if (answer == quest.answer())
 			{
-				cout << "Correct!" << endl << endl;
+				cout << "Correct!" << endl;
 				quest.remove();
 			}
 			else
 			{
-				cout << "Incorrect!" << endl << endl;
+				cout << "Incorrect!" << endl
+				 	 << "The correct answer was '" + quest.answer() + "'. "
+				     << "Were you correct? (y/n)" << endl;
+				
+				string ans;
+				getline(cin, ans);
+				
+				if (ans == "y")
+				{
+					quest.remove();
+				}
 			}
+			
+			cout << endl;
 		}
 	}
 	

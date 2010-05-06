@@ -10,17 +10,16 @@
 	- QT GUI?
 
 0.4:
-	- Settings
 	- Populate README
-	- Conjugation of verbs
+	- Conjugation of verbs?
 	- Merging dicts
 	- Encoding problems?
 
 0.5:
-
+	- Settings
 	- A CLI argument-interface
 	- Editing capabilities
-	- Comments (e.g. "faire <kommentti>(epäsäännöllinen)</kommentti>")
+	- Comments (e.g. "faire <comment>(irregular)</comment>")
 
 0.6:
 

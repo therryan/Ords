@@ -1,7 +1,7 @@
 #include "settings.h"
 
-const string Settings::versionText = "05.05.2010";
-const float Settings::versionNumber = 0.3;
+const string Settings::versionText = "06.05.2010";
+const float Settings::versionNumber = 0.31;
 
 string Settings::helpPath()
 {
