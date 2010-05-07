@@ -1,5 +1,5 @@
-ords: ords.o file.o plaintext.o settings.o args.o ui.o uifuncs.o init.o definition.o def_term.o dictionary.o question.o collection.o utils.o
-	g++ -o ords ords.o file.o plaintext.o settings.o args.o ui.o uifuncs.o init.o definition.o def_term.o dictionary.o question.o collection.o utils.o
+ords: ords.o file.o plaintext.o settings.o args.o ui.o uifuncs.o init.o definition.o def_term.o wrapper.o conjugation.o dictionary.o question.o collection.o utils.o
+	g++ -o ords ords.o file.o plaintext.o settings.o args.o ui.o uifuncs.o init.o definition.o def_term.o wrapper.o conjugation.o dictionary.o question.o collection.o utils.o
 
 ords.o: ords.cpp file/file.h cli/cli.h
 	g++ -Wall -pedantic -c ords.cpp
@@ -31,6 +31,12 @@ definition.o: data/definition.cpp data/definition.h
 def_term.o: data/def_term.cpp data/def_term.h
 	g++ -Wall -pedantic -c data/def_term.cpp
 	
+conjugation.o: data/conjugation.cpp data/conjugation.h
+	g++ -Wall -pedantic -c data/conjugation.cpp
+
+wrapper.o: data/wrapper.cpp data/wrapper.h
+	g++ -Wall -pedantic -c data/wrapper.cpp
+	
 dictionary.o: data/dictionary.cpp data/dictionary.h
 	g++ -Wall -pedantic -c data/dictionary.cpp
 
@@ -44,4 +50,4 @@ utils.o: utils/utils.cpp utils/utils.h
 	g++ -Wall -pedantic -c utils/utils.cpp
 	
 clean:
-	rm ords ords.o file.o plaintext.o settings.o args.o ui.o uifuncs.o init.o definition.o def_term.o dictionary.o question.o collection.o utils.o
+	rm ords ords.o file.o plaintext.o settings.o args.o ui.o uifuncs.o init.o definition.o def_term.o wrapper.o conjugation.o dictionary.o question.o collection.o utils.o

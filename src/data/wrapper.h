@@ -6,7 +6,7 @@
 #ifndef WRAPPER_H
 #define WRAPPER_H
 
-#include "..utils/utils.h"
+#include "../utils/utils.h"
 
 #include "definition.h"
 #include "def_term.h"

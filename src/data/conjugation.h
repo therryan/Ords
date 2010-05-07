@@ -6,7 +6,7 @@
 #ifndef CONJUGATION_H
 #define CONJUGATION_H 
 
-#include "..utils/utils.h"
+#include "../utils/utils.h"
 
 
 
