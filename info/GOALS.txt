@@ -32,3 +32,15 @@
 0.9:
 
 1.0:
+
+
+BUGS:
+	Crashes when:
+		'ask' with no dicts or with dicts
+		'rask' look above
+		'exit' when there is something to save
+
+ISSUES:
+	When no dictionaries present and the user defines something, defs are lost
+	When an empty dict is opened, no error message is shown, but it still says that are no dicts
+	When defining a def, the user is stuck in the continuous input mode
