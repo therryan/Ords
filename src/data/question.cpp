@@ -3,15 +3,13 @@
 Question::Question(Dictionary dict)
 {
 	_dictTitle = dict.getTitle();
-	_defDict = dict.getDefDict();
-	_dtDict = dict.getDtDict();
 	
 	_reverse = false;
 }
 
 int Question::size()
 {
-	return _defDict.size() + _dtDict.size();
+	return _dict.size();
 }
 
 void Question::setReverse(bool reverse)
@@ -21,39 +19,40 @@ void Question::setReverse(bool reverse)
 
 string Question::ask()
 {
-	if (_dtDict.size() > 0)
+	if (_dict.size() > 0)
 	{
-		_dtElem = getRand(_dtDict.size());
+		_elem = getRand(_dict.size());
 		
 		if (_reverse == true)
 		{
-			return _dtDict[_dtElem].getDescr();
+			return _dict[_elem].getDescr();
 		}
 		else
 		{
-			return _dtDict[_dtElem].getTerm();
+			return _dict[_elem].getTerm();
 		}
 	}
 
-	if (_defDict.size() > 0)
+	if (_dict.size() > 0)
 	{
 		cout << "Definitions exist!" << endl;
 	}
+
 	return false;
 }
 
 string Question::answer()
 {
-	if (_dtDict.size() > 0)
+	if (_dict.size() > 0)
 	{
 		if (_reverse == true)
 		{
-			return _dtDict[_dtElem].getTerm();
+			return _dict[_elem].getTerm();
 		}
-		return _dtDict[_dtElem].getDescr();
+		return _dict[_elem].getDescr();
 	}
 
-	if (_defDict.size() > 0)
+	if (_dict.size() > 0)
 	{
 		cout << "Definitions exist!" << endl;
 	}
@@ -62,13 +61,9 @@ string Question::answer()
 
 void Question::remove()
 {
-	if (_dtDict.size() > 0)
+	if (_dict.size() > 0)
 	{
-		_dtDict.erase(_dtDict.begin() + _dtElem);
-	}
-
-	if (_defDict.size() > 0)
-	{
-		_defDict.erase(_defDict.begin() + _dtElem);
+		_dict.erase(_dict.begin() + _elem);
 	}
 }
+

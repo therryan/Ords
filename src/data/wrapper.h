@@ -19,13 +19,22 @@ class Wrapper
 		DefinitionTerm _dt;
 		Conjugation _conj;
 
+		string _type;
+
 	public:
 		Wrapper();
 		Wrapper(Definition def);
 		Wrapper(DefinitionTerm dt);
 		Wrapper(Conjugation conj);
 
+		// For DefinitionTerm
+		string getTerm();
+		string getDescr();
+
 		string type();
+
+		string save();
+		string repr();
 };
 
 #endif

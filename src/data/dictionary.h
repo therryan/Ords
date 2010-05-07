@@ -12,36 +12,30 @@
 
 #include "definition.h"
 #include "def_term.h"
+#include "wrapper.h"
 
 class Dictionary
 {
 	private:
 		string _dictTitle;				// The title (filename) of the dict
-		vector<Definition> _defDict;		// One vector for each of the two types
-		vector<DefinitionTerm> _dtDict;
+		vector<Wrapper> _dict;
 		
 	public:
 		Dictionary(string title = "");
-		Dictionary(Definition def, string title = "");
-		Dictionary(DefinitionTerm dt, string title = "");
-		
+		Dictionary(Wrapper wrap, string title = "");	
+	
 		string getTitle();
-		vector<Definition> getDefDict();
-		vector<DefinitionTerm> getDtDict();
 		
 		int size();
 		
 		void load(string file);
-		void save();	// Collection::save() calls each dict's save() function
+		void save();	// Gets called by Collection::save()
 		
-		void add(Definition def);
-		void add(DefinitionTerm dt);
-		void add(string word, string translation,
-		 		 string langWord = "", string langTranslation = "");	// Deprecation much??
-				 
-		//void remove(string word);		// Removes one definition
+		void add(Wrapper wrap);
+
+		//void remove(string word);			// Removes one definition
 		//string translate(string word);	// Gets the translation of a given word
-		string repr();					// Prints out all definitions in a human-readable way
+		string repr();						// Prints out all definitions in a human-readable way
 };
 
 #endif

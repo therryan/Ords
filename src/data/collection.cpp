@@ -22,17 +22,6 @@ void Collection::setCurrentDict(string title)
 	}
 }
 
-// Puts the vectors of defs of the current dict the variables given as ref.
-/*void Collection::getDict(vector<Definition> &defDict,
-	vector<DefinitionTerm> &dtDict)
-{
-	if (_collection.size() > 0)
-	{
-		defDict = _collection[_currentDict].getDefDict();
-		dtDict = _collection[_currentDict].getDtDict();
-	}
-}*/
-
 Question Collection::getQuestion()
 {
 	return Question(_collection[_currentDict]);

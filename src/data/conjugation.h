@@ -14,7 +14,9 @@ class Conjugation
 
 	public:
 		Conjugation();
-
+		
+		string save();
+		string repr();
 };
 
 #endif

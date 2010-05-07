@@ -9,20 +9,18 @@
 #define QUESTION_H
 
 #include "dictionary.h"
-#include "definition.h"
-#include "def_term.h"
+#include "wrapper.h"
 
 #include "../utils/utils.h"
+
 class Dictionary;
 class Question 
 {
 	private:
 		string _dictTitle;
-		vector<Definition> _defDict;
-		vector<DefinitionTerm> _dtDict;
+		vector<Wrapper> _dict;
 
-		int _defElem;	// Points to the current Def-element
-		int _dtElem;	// Points to the current DT-element
+		int _elem;	// Points to the current element
 		
 		bool _reverse;
 
