@@ -23,4 +23,3 @@
 #include "collection.h"
 
 #endif
-

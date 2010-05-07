@@ -69,4 +69,3 @@ void Question::remove()
 		_dict.erase(_dict.begin() + _elem);
 	}
 }
-

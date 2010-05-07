@@ -286,4 +286,3 @@ namespace ui
 			 << endl;
 	}
 }
-

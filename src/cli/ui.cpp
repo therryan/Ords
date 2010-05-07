@@ -72,4 +72,3 @@ bool parse(string input)
 	}
 	return true;
 }
-

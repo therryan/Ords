@@ -16,7 +16,7 @@ string Dictionary::getTitle()
 	return _dictTitle;
 }
 
-vector<Wrapper> getDict()
+vector<Wrapper> Dictionary::getDict()
 {
 	return _dict;
 }

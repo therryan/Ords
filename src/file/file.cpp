@@ -11,4 +11,3 @@ string readData(string filename)
 {
 	return readPlaintext(filename);
 }
-

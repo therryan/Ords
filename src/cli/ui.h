@@ -17,4 +17,3 @@ string prompt(string prompt = ">>> ");
 bool parse(string input);
 
 #endif
-
