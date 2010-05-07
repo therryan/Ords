@@ -5,14 +5,16 @@
 	- Folders/'collections' of dicts (ie. data/french/verbs, could be accessed by saying french.verbs?)
 	- Import/Export (to/from Genius.app, for example)
 	- Support asking questions based on tags, categories, languages
+	- Conjugation of verbs?
     
 	
 	- QT GUI?
 
 0.4:
 	- Populate README
-	- Conjugation of verbs?
 	- Merging dicts
+	- Wrapper class
+	- License
 	- Encoding problems?
 
 0.5:
