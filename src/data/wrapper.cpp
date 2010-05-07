@@ -45,15 +45,15 @@ string Wrapper::save()
 {
 	if (_type == "Definition")
 	{
-		_def.save();
+		return _def.save();
 	}
 	else if (_type == "DefinitionTerm")
 	{
-		_dt.save();
+		return _dt.save();
 	}
 	else if (_type == "Conjugation")
 	{
-		_conj.save();
+		return _conj.save();
 	}
 }
 

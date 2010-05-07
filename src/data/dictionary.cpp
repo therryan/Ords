@@ -16,6 +16,11 @@ string Dictionary::getTitle()
 	return _dictTitle;
 }
 
+vector<Wrapper> getDict()
+{
+	return _dict;
+}
+
 int Dictionary::size()
 {
 	return _dict.size();

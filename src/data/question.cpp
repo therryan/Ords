@@ -3,7 +3,7 @@
 Question::Question(Dictionary dict)
 {
 	_dictTitle = dict.getTitle();
-	
+	_dict = dict.getDict();	
 	_reverse = false;
 }
 
@@ -19,8 +19,10 @@ void Question::setReverse(bool reverse)
 
 string Question::ask()
 {
+	cout << "Question::ask()" << endl;
 	if (_dict.size() > 0)
 	{
+		cout << "1" << endl;
 		_elem = getRand(_dict.size());
 		
 		if (_reverse == true)
@@ -29,6 +31,7 @@ string Question::ask()
 		}
 		else
 		{
+			cout << "2" << endl;
 			return _dict[_elem].getTerm();
 		}
 	}

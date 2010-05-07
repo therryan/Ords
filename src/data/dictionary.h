@@ -25,7 +25,8 @@ class Dictionary
 		Dictionary(Wrapper wrap, string title = "");	
 	
 		string getTitle();
-		
+		vector<Wrapper> getDict();
+
 		int size();
 		
 		void load(string file);
