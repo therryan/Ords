@@ -287,11 +287,3 @@ namespace ui
 	}
 }
 
-// {	
-// 	else if (tokens[0] == "new")	{ui::newDict();}
-// 	else if (tokens[0] == "use")	{ui::use();}
-// 	else if (tokens[0] == "open")	{ui::open();}
-
-// 	else if (tokens[0] == "new")	{ui::newDict(tokens[1]);}
-// 	else if (tokens[0] == "use")	{ui::use(tokens[1]);}
-// 	else if (tokens[0] == "open")	{ui::open(tokens[1]);}

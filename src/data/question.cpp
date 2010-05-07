@@ -39,6 +39,7 @@ string Question::ask()
 	{
 		cout << "Definitions exist!" << endl;
 	}
+	return false;
 }
 
 string Question::answer()
@@ -56,6 +57,7 @@ string Question::answer()
 	{
 		cout << "Definitions exist!" << endl;
 	}
+	return false;
 }
 
 void Question::remove()

@@ -12,4 +12,20 @@
 #include "def_term.h"
 #include "conjugation.h"
 
+class Wrapper
+{
+	private:
+		Definition _def;
+		DefinitionTerm _dt;
+		Conjugation _conj;
+
+	public:
+		Wrapper();
+		Wrapper(Definition def);
+		Wrapper(DefinitionTerm dt);
+		Wrapper(Conjugation conj);
+
+		string type();
+};
+
 #endif

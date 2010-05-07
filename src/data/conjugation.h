@@ -8,6 +8,13 @@
 
 #include "../utils/utils.h"
 
+class Conjugation
+{
+	private:
 
+	public:
+		Conjugation();
+
+};
 
 #endif
