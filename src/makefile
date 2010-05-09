@@ -1,53 +1,20 @@
-ords: ords.o file.o plaintext.o settings.o args.o ui.o uifuncs.o init.o definition.o def_term.o wrapper.o conjugation.o dictionary.o question.o collection.o utils.o
-	g++ -o ords ords.o file.o plaintext.o settings.o args.o ui.o uifuncs.o init.o definition.o def_term.o wrapper.o conjugation.o dictionary.o question.o collection.o utils.o
+# Makefile for Ords. Copyright 2010 Teemu Vasama
 
-ords.o: ords.cpp file/file.h cli/cli.h
-	g++ -Wall -pedantic -c ords.cpp
-	
-file.o: file/file.cpp file/file.h
-	g++ -Wall -pedantic -c file/file.cpp
-	
-plaintext.o: file/plaintext.cpp file/plaintext.h
-	g++ -Wall -pedantic -c file/plaintext.cpp
-	
-settings.o: file/settings.cpp file/settings.h
-	g++ -Wall -pedantic -c file/settings.cpp
-	
-args.o: cli/args.cpp cli/args.h
-	g++ -Wall -pedantic -c cli/args.cpp
-	
-ui.o: cli/ui.cpp cli/ui.h
-	g++ -Wall -pedantic -c cli/ui.cpp
-	
-uifuncs.o: cli/uifuncs.cpp cli/uifuncs.h
-	g++ -Wall -pedantic -c cli/uifuncs.cpp
-	
-init.o: init/init.cpp init/init.h
-	g++ -Wall -pedantic -c init/init.cpp
-	
-definition.o: data/definition.cpp data/definition.h
-	g++ -Wall -pedantic -c data/definition.cpp
-	
-def_term.o: data/def_term.cpp data/def_term.h
-	g++ -Wall -pedantic -c data/def_term.cpp
-	
-conjugation.o: data/conjugation.cpp data/conjugation.h
-	g++ -Wall -pedantic -c data/conjugation.cpp
+# Assgning the macro that contains all the necessary object files
+OBJECTS = ords.o file.o plaintext.o settings.o args.o ui.o uifuncs.o init.o definition.o def_term.o wrapper.o conjugation.o dictionary.o question.o collection.o utils.o
 
-wrapper.o: data/wrapper.cpp data/wrapper.h
-	g++ -Wall -pedantic -c data/wrapper.cpp
-	
-dictionary.o: data/dictionary.cpp data/dictionary.h
-	g++ -Wall -pedantic -c data/dictionary.cpp
+# Assigning the compiler and flags to use
+CPP = g++
+CPPFLAGS = -Wall -pedantic
 
-question.o: data/question.cpp data/question.h
-	g++ -Wall -pedantic -c data/question.cpp
-	
-collection.o: data/collection.cpp data/collection.h
-	g++ -Wall -pedantic -c data/collection.cpp
-	
-utils.o: utils/utils.cpp utils/utils.h
-	g++ -Wall -pedantic -c utils/utils.cpp
-	
+# The rule that compiles all the files
+%.o : */%.cpp
+	$(CPP) $(CPPFLAGS) -c $< -o $@
+
+# Links the files, producing the binary
+ords: $(OBJECTS)
+	$(CPP) -g $(OBJECTS) -o ords
+
+# For cleaning the files
 clean:
-	rm ords ords.o file.o plaintext.o settings.o args.o ui.o uifuncs.o init.o definition.o def_term.o wrapper.o conjugation.o dictionary.o question.o collection.o utils.o
+	rm ords $(OBJECTS)
