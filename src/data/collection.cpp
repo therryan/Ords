@@ -54,10 +54,13 @@ int Collection::size()
 void Collection::load(string file)
 {
 	Dictionary dict(file);
-	dict.load(file);
+	bool success = dict.load(file);
 	
-	if(dict.size() > 0)
+	cout << "1" << endl;
+	
+	if(success == true)
 	{
+		cout << "2" << endl;
 		_collection.push_back(dict);
 	}
 }

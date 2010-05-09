@@ -84,8 +84,8 @@ bool parse(string input)
 				 tokens[0] == "define")	{ui::define(tokens[1]);}
 		else
 		{
-			cout << "Command '" << tokens[0] << "' doesn't exist. Type help " <<
-				"to see all commands." << endl;
+			cout << "Command '" << tokens[0] << "' doesn't exist. " <<
+				"Type 'help' to see all the commands." << endl;
 		}
 	}
 	return true;

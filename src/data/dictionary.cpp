@@ -44,7 +44,7 @@ int Dictionary::size()
 	return _dict.size();
 }
 
-void Dictionary::load(string file)
+bool Dictionary::load(string file)
 {	
 	string data;
 	
@@ -56,6 +56,7 @@ void Dictionary::load(string file)
 	catch (string error)
 	{
 		cerr << error << endl;
+		return false;
 	}
 					
 	vector<string> dict = split(data, "\n"); // Splits to lines
@@ -84,6 +85,8 @@ void Dictionary::load(string file)
 			}						
 		}				
 	}
+	
+	return true;	// Loading went fine, add to Collection
 }
 
 // Call save() on all wrappers

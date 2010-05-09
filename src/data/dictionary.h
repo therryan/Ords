@@ -47,7 +47,7 @@ class Dictionary
 
 		int size();
 		
-		void load(string file);
+		bool load(string file);	// Returns true if loading was succesful
 		void save();	// Gets called by Collection::save()
 		
 		void add(Wrapper wrap);

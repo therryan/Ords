@@ -116,7 +116,7 @@ namespace ui
 		
 		if (choice.length() == 0)
 		{
-			cout << "Would you like to define a dt (0) or a def (1) ? ";
+			cout << "Would you like to define a term (0) or a word (1) ? ";
 			which = getInt();
 		}
 		
@@ -166,7 +166,7 @@ namespace ui
 			
 			if (word.length() == 0)
 			{
-				break;
+				return false;
 			}
 		
 			cout << "Enter the language: ";
