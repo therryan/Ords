@@ -24,12 +24,14 @@ string Settings::_dataPath = "";
 
 bool Settings::init()
 {
+	string settings;
+	
 	while (true)
 	{
 		// Read the config and if it isn't there, create one with defaults.
 		try
 		{
-			string settings = readData(Settings::configPath());
+			settings = readData(Settings::configPath());
 			break;
 		}
 		
@@ -39,7 +41,38 @@ bool Settings::init()
 		}
 	}
 	
+	map<string, string> config = Settings::parse(settings);
+	Settings::set(config);
+	
 	return true;
+}
+
+map<string, string> Settings::parse(string data)
+{
+	map<string, string> config;
+	
+	vector<string> directives = split(data, "\n");
+	
+	for (unsigned int i = 0; i < directives.size(); i++)
+	{
+		cout << directives[i] << endl;
+		vector<string> tmp = split(directives[i], "=");
+				
+		if (tmp.size() == 2)
+		{
+			if (tmp[0] == "datapath")
+			{
+				config["dataPath"] = tmp[1];
+			}
+		}
+	}
+	
+	return config;
+}
+
+void Settings::set(map<string, string> config)
+{
+	Settings::_dataPath = config["dataPath"] + "/";
 }
 
 bool Settings::save()
@@ -64,7 +97,7 @@ string Settings::defaultConfig()
 	string home = getenv("HOME");
 	
 	// Location of the data folder
-	config += "datafolder=" + home + "/ords";
+	config += "datapath=" + home + "/ords";
 	
 	return config;
 }

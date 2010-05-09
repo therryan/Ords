@@ -48,6 +48,7 @@ string readPlaintext(string path)
 			getline(file, line);
 			fileContents += line + "\n";
 		}
+		
 		file.close();
 		return fileContents;
 	}

@@ -27,6 +27,7 @@
 
 #include <iostream>
 #include <vector>
+#include <map>
 #include <string>
 #include <sstream>
 #include <ctime>
@@ -38,6 +39,8 @@ using std::cerr;
 using std::endl;
 
 using std::vector;
+
+using std::map;
 
 using std::string;
 

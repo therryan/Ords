@@ -33,6 +33,8 @@ class Settings
 	private:
 		Settings();
 		
+		static map<string, string> parse(string data);
+		static void set(map<string, string>);
 		static string repr();
 		static string defaultConfig();
 		
