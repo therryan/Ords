@@ -7,15 +7,15 @@ It is distributed under the terms and conditions of the Gnu General Public Licen
 
 ## Installation
 
-To install, just go to the folder and 'make'.
+To install, just go to the folder and `make`.
 Then copy the resulting binary to the place that you want.
-'make install' is going to be implemented some day (who needs it anyway?...)
+`make install` is going to be implemented some day (who needs it anyway?...)
 
 ## Usage
 
 Currently, Ords supports to ways of interaction: the interactive mode and the argument-interface.
-To open the interactive mode, just open the application. To see the supported commands, type 'help'
-To see what arguments there are, type 'ords --help'.
+To open the interactive mode, just open the application. To see the supported commands, type `help`
+To see what arguments there are, type `ords --help`.
 
 ### Paths and Settings
 
