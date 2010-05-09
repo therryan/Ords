@@ -112,6 +112,13 @@ namespace ui
 	
 	void define(string choice)
 	{
+		if (Collection::size() == 0)
+		{
+			cout << "There are no dictionaries present, " << 
+				"please create one!" << endl;
+			newDict();
+		}
+		
 		int which;
 		
 		if (choice.length() == 0)
