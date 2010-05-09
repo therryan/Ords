@@ -15,16 +15,29 @@ Then copy the resulting binary to the place that you want.
 
 ## Usage
 
-Currently, Ords supports to ways of interaction: the interactive mode and the argument-interface.
-To open the interactive mode, just open the application. To see the supported commands, type `help`
+Currently, Ords supports two ways of interaction: the interactive mode and the argument-interface.
+To open the interactive mode, just open the application: `ords`. To see the supported commands, type `help`.
 To see what arguments there are, type `ords --help`.
 
 ### Paths and Settings
 
-Ords currently stores its data in the data folder. All the files end in ".ords".
-Settings are under development. In the future the location of the data folder can be moved.
+Ords stores its data in the data folder. All the files end in ".ords". By default it's `~/ords/`.
+To change that, edit the `datapath` directive in the `~/.ords.conf` file.
+
+## Other files
+
+### LICENSE
+
+Contains the GPLv3 license.
+
+### CHANGELOG
+
+Contains an easily understandable version history of the main features.
+
+### DEVELOPER
+
+Has information about the inner workings of the application for people who are interested in that kind of stuff.
 
 ## Authors
 
-Teemu Vasama
-	<therryan1@gmail.com>
+Teemu Vasama <therryan1@gmail.com>
