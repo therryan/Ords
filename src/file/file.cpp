@@ -18,8 +18,6 @@
 
 #include "file.h"
 
-using namespace std;
-
 void writeData(string filename, string data)
 {
 	writePlaintext(filename, data);

@@ -26,20 +26,25 @@
 #define SETTINGS_H
 
 #include "../utils/utils.h"
+#include "file.h"
 
 class Settings
 {
 	private:
 		Settings();
 		
-		static const float versionNumber;
-		static const string versionText;
+		static string repr();
+		static string defaultConfig();
+		
+		static const float _versionNumber;
+		static const string _versionText;
+		static string _dataPath;
 				
 	public:
-		static void init();
+		static bool init();
+		static bool save();
 		
 		static string configPath();
-		static string helpPath();
 		static string dataPath(string file = "");
 		static float version();
 		static string versionInfo();

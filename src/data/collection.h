@@ -55,7 +55,7 @@ class Collection
 		static int size();	// Return the amount of dictionaries loaded
 		
 		static void load(string file);
-		static void save();
+		static bool save();
 				
 		static void add(Dictionary dict);
 		static void add(Definition def);	// Add to current dict

@@ -30,6 +30,7 @@
 #include <string>
 #include <sstream>
 #include <ctime>
+#include <cstdlib>
 
 using std::cout;
 using std::cin;
@@ -43,5 +44,7 @@ using std::string;
 using std::stringstream;
 
 using std::time;
+
+using std::getenv;
 
 #endif

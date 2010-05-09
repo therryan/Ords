@@ -55,24 +55,23 @@ void Collection::load(string file)
 {
 	Dictionary dict(file);
 	bool success = dict.load(file);
-	
-	cout << "1" << endl;
-	
+		
 	if(success == true)
 	{
-		cout << "2" << endl;
 		_collection.push_back(dict);
 	}
 }
 
 // Just calls save() on all the dicts, initiating the chain of save()-calls
-void Collection::save()
+bool Collection::save()
 {
 	for (unsigned int i = 0; i < _collection.size(); i++)
 	{
 		_collection[i].save();
 		cout << "Saving '" << _collection[i].getTitle() << "'" << endl;
 	}
+	
+	return true;
 }
 
 void Collection::add(Dictionary dict)

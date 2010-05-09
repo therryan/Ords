@@ -20,24 +20,23 @@
 
 bool init()
 {
-	// Not implemented yet
-	// Settings::load();
-
-	Collection::init();	// Inits the Collection
-	
-	// For now, doesn't *really* do anything
-	if (true)
+	// Initializes the Settings and the Collection
+	if (Settings::init() && Collection::init())
 		{return true;}
 	else
-		{exit(EXIT_FAILURE);}
-	
+		{
+			cerr << "Initialization failed, exiting" << endl;
+			exit(EXIT_FAILURE);
+		}
 }
 bool deinit()
 {
-	Collection::save(); // Saves stuff to disk
-	
-	// Not implemented yet
-	// Settings::save();
-	
-	return true;
+	if (Collection::save() && Settings::save())
+	{
+		return true;
+	}
+	else
+	{
+		return false;
+	}
 }

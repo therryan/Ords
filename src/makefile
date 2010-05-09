@@ -6,6 +6,7 @@ OBJECTS = ords.o file.o plaintext.o settings.o args.o ui.o uifuncs.o init.o defi
 # Assigning the compiler and flags to use
 CPP = g++
 CPPFLAGS = -Wall -pedantic
+LOCATION = ~
 
 # The rule that compiles all the files
 %.o : */%.cpp
@@ -18,3 +19,6 @@ ords: $(OBJECTS)
 # For cleaning the files
 clean:
 	rm ords $(OBJECTS)
+	
+install:
+	mv ords $(LOCATION)/ords

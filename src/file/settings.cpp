@@ -18,37 +18,83 @@
 
 #include "settings.h"
 
-const string Settings::versionText = "06.05.2010";
-const float Settings::versionNumber = 0.31;
+const string Settings::_versionText = "09.05.2010";
+const float Settings::_versionNumber = 0.32;
+string Settings::_dataPath = "";
 
-string Settings::helpPath()
+bool Settings::init()
 {
-	return "../ords/help";
+	while (true)
+	{
+		// Read the config and if it isn't there, create one with defaults.
+		try
+		{
+			string settings = readData(Settings::configPath());
+			break;
+		}
+		
+		catch (string error)
+		{
+			writeData(Settings::configPath(), Settings::defaultConfig());
+		}
+	}
+	
+	return true;
+}
+
+bool Settings::save()
+{
+	writeData(Settings::configPath(), Settings::repr());
+	
+	return true;
+}
+
+string Settings::repr()
+{
+	string settings;
+	
+	settings += "datapath=" + Settings::dataPath();
+	
+	return settings;
+}
+
+string Settings::defaultConfig()
+{
+	string config;
+	string home = getenv("HOME");
+	
+	// Location of the data folder
+	config += "datafolder=" + home + "/ords";
+	
+	return config;
 }
 
 string Settings::configPath()
 {
-	return "../ords/ords.conf";
+	// NOTE: This is the hardcoded location of the default config file
+	// Will most likely only work work on *nix systems
+	string home = getenv("HOME");
+	return home + "/.ords.conf";
 }
 
 string Settings::dataPath(string file)
 {
 	if (file.length() == 0)
 	{
-		return "../data/";
+		return _dataPath;
 	}
 	else
 	{
-		return "../data/" + file + ".ords";
+		return _dataPath + file + ".ords";
 	}
 }
 
 float Settings::version()
 {
-	return versionNumber;
+	return _versionNumber;
 }
 
 string Settings::versionInfo()
 {
-	return versionText;
+	return _versionText;
 }

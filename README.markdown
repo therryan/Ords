@@ -1,5 +1,7 @@
 # Ords
 
+Git page: http://github.org/therryan/Ords
+
 ## What is Ords?
 
 Ords is a program for training the vocabulary.
@@ -9,7 +11,7 @@ It is distributed under the terms and conditions of the Gnu General Public Licen
 
 To install, just go to the folder and `make`.
 Then copy the resulting binary to the place that you want.
-`make install` is going to be implemented some day (who needs it anyway?...)
+`make install` moves the binary by default to `~`. `make install "LOCATION=/usr/bin"` will install the application there.
 
 ## Usage
 
@@ -25,3 +27,4 @@ Settings are under development. In the future the location of the data folder ca
 ## Authors
 
 Teemu Vasama
+	<therryan1@gmail.com>

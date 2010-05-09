@@ -72,15 +72,7 @@ namespace args
 	//void add(string content)
 	void help()
 	{	
-		string helpPath = Settings::helpPath();
-		try
-		{
-			readPlaintext(helpPath);
-		}
-		catch (string error)
-		{
-			cout << "ERROR: " + error << endl;
-		}	
+		;
 	}
 	void read(string target)
 	{
