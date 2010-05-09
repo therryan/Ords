@@ -24,7 +24,20 @@ To see what arguments there are, type `ords --help`.
 Ords stores its data in the data folder. All the files end in ".ords". By default it's `~/ords/`.
 To change that, edit the `datapath` directive in the `~/.ords.conf` file.
 
+## Other files
+
+### LICENSE
+
+Contains the GPLv3 license.
+
+### CHANGELOG
+
+Contains an easily understandable version history of the main features.
+
+### DEVELOPER
+
+Has information about the inner workings of the application for people who are interested in that kind of stuff.
+
 ## Authors
 
-Teemu Vasama
-	<therryan1@gmail.com>
+Teemu Vasama <therryan1@gmail.com>
