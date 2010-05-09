@@ -25,4 +25,5 @@
 	- The Wrapper-class is now fully implemented and all the problems that arised from the switch have been fixed
 	
 2010-05-09:
-	
+	- Made Settings work
+	- The location of the data folder can be moved by using the config file "~/.ords.conf"
