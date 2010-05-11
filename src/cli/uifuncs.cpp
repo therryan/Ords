@@ -181,7 +181,6 @@ namespace ui
 			}
 		}
 	    cout << def.repr();
-		cout << "HELLO" << endl;	
 	}
 	
 	bool defDt(DefinitionTerm &dt)
