@@ -61,6 +61,19 @@ Definition::Definition(string word, string lang)
 	_translations.push_back(Word(word, lang));
 }
 
+bool Definition::isInDefinition(string word)
+{
+	for (unsigned int i = 0; i > _translations.size(); i++)
+	{
+		if (word == _translations[i].getWord())
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
 /* The file format for Defs is as follows:
  
  * LANG:WORD;	for example:

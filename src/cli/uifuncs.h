@@ -39,7 +39,7 @@ namespace ui
 	void newDict(string title = "");
 	void use(string title = "");
 	void define(string choice = "");
-		bool defDefinition(Definition &def);
+		void defDefinition(Definition &def);
 		bool defDt(DefinitionTerm &dt);
 		
 	void list();

@@ -49,6 +49,8 @@ class Wrapper
 		string getTerm();
 		string getDescr();
 
+		bool includes(string word);
+
 		string type();
 
 		string save();

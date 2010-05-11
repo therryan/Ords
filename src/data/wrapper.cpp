@@ -44,6 +44,18 @@ string Wrapper::getTerm()
 	{
 		return _dt.getTerm();
 	}
+
+	return "";
+}
+
+bool Wrapper::includes(string word)
+{
+	if (_def.isInDefinition(word)) 
+	{
+		return true;
+	}
+
+	return false;
 }
 
 string Wrapper::getDescr()
@@ -52,6 +64,8 @@ string Wrapper::getDescr()
 	{
 		return _dt.getDescr();
 	}
+
+	return "";
 }
 
 string Wrapper::type()
@@ -73,6 +87,8 @@ string Wrapper::save()
 	{
 		return _conj.save();
 	}
+
+	return "";
 }
 
 string Wrapper::repr()
@@ -89,4 +105,6 @@ string Wrapper::repr()
 	{
 		return _conj.repr();
 	}
+
+	return "";
 }

@@ -46,7 +46,7 @@ namespace ui
 			string answer;
 			getline(cin, answer);
 
-			if (answer == quest.answer())
+			if (quest.verify(answer))
 			{
 				cout << "Correct!" << endl;
 				quest.remove();
@@ -144,17 +144,9 @@ namespace ui
 		else if (which == 1 || choice == "def" || choice == "definition" ||
 				choice == "word")
 		{
-			bool again = true;
-			while (again == true)
-			{
-				Definition def;
-				again = defDefinition(def);
-				
-				if (again == true)
-				{
-					Collection::add(def);
-				}
-			}
+			Definition def;
+			defDefinition(def);
+			Collection::add(def);
 		}
 		else
 		{
@@ -162,7 +154,7 @@ namespace ui
 		}
 	}
 	
-	bool defDefinition(Definition &def)
+	void defDefinition(Definition &def)
 	{
 		string word, lang;
 		
@@ -173,7 +165,7 @@ namespace ui
 			
 			if (word.length() == 0)
 			{
-				return false;
+				break;
 			}
 		
 			cout << "Enter the language: ";
@@ -189,8 +181,7 @@ namespace ui
 			}
 		}
 	    cout << def.repr();
-		
-		return true;
+		cout << "HELLO" << endl;	
 	}
 	
 	bool defDt(DefinitionTerm &dt)

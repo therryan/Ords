@@ -51,6 +51,9 @@ class Question
 		
 	 	string ask();		// Returns the question
 		string answer();	// Return the answer
+
+		// Checks if 'guess' is correct, deprecates 'answer()', must be used because Definitions have multiple possible answers
+		bool verify(string guess);
 		void remove();		// Removes the previously asked question
 };
 

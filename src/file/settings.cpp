@@ -55,7 +55,7 @@ map<string, string> Settings::parse(string data)
 	
 	for (unsigned int i = 0; i < directives.size(); i++)
 	{
-		cout << directives[i] << endl;
+		//cout << directives[i] << endl;
 		vector<string> tmp = split(directives[i], "=");
 				
 		if (tmp.size() == 2)

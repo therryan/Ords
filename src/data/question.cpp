@@ -64,20 +64,51 @@ string Question::ask()
 
 string Question::answer()
 {
-	if (_dict.size() > 0)
+	if (_dict.size() > 0 && _dict[_elem].type() == "DefinitionTerm")
 	{
 		if (_reverse == true)
 		{
 			return _dict[_elem].getTerm();
 		}
-		return _dict[_elem].getDescr();
+
+		return _dict[_elem].getDescr(); 
 	}
 
+	return "";
+}
+
+bool Question::verify(string guess)
+{
 	if (_dict.size() > 0)
 	{
-		cout << "Definitions exist!" << endl;
+		if (_dict[_elem].type() == "DefinitionTerm")
+		{
+			if (_reverse == true)
+			{
+				if (_dict[_elem].getTerm() == guess)
+				{
+					return true;
+				}
+			}
+			else
+			{
+				if (_dict[_elem].getDescr() == guess)
+				{
+					return true;
+				}
+			}
+		}
+
+		if (_dict[_elem].type() == "Definition")
+		{
+			if (_dict[_elem].includes(guess))
+			{
+				return true;
+			}
+
+			return false;
+		}
 	}
-	return false;
 }
 
 void Question::remove()
