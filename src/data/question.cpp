@@ -102,10 +102,10 @@ bool Question::verify(string guess)
 			{
 				return true;
 			}
-
-			return false;
 		}
 	}
+	
+	return false;
 }
 
 void Question::remove()

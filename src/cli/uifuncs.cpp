@@ -115,7 +115,7 @@ namespace ui
 		if (Collection::size() == 0)
 		{
 			cout << "There are no dictionaries present, " << 
-				"please create one!" << endl;
+				"please create one!" << endl << endl;
 			newDict();
 		}
 		
