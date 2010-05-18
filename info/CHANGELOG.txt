@@ -27,3 +27,6 @@
 2010-05-09:
 	- Made Settings work
 	- The location of the data folder can be moved by using the config file "~/.ords.conf"
+
+2010-05-18:
+	- Started the preliminary work in order to support the 'ask' command in conjunction woth Definitions
