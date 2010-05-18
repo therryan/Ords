@@ -61,6 +61,8 @@ class Definition
 		// To be deprecated?? One can just do foo(Word(word, lang))?
 		Definition(string word, string lang);
 		
+		string getWordByLanguage(string lang);
+
 		bool isInDefinition(string word);
 
 		string save();	// When Collection::save() is called, this will eventually get called

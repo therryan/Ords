@@ -35,8 +35,18 @@ void Question::setReverse(bool reverse)
 	_reverse = reverse;
 }
 
+void Question::setLang(string lang)
+{
+	_lang = lang;
+}
+
 string Question::ask()
 {
+	if (_lang.length() > 0 && _dict[_elem].type() == "Definition")
+	{
+		_dict[_elem].getWord(_lang);
+	}
+
 	if (_dict.size() > 0)
 	{
 		_elem = getRand(_dict.size());
@@ -69,6 +79,13 @@ string Question::answer()
 		}
 
 		return _dict[_elem].getDescr(); 
+	}
+
+	if (_dict.size() > 0 && _dict[_elem].type() == "Definition")
+	{
+		cout << "HELLO" << endl;
+		cout << "ELEM: " << _dict[_elem].getWord(_lang) << endl ;
+		return _dict[_elem].getWord(_lang);		
 	}
 
 	return "";

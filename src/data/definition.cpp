@@ -61,6 +61,22 @@ Definition::Definition(string word, string lang)
 	_translations.push_back(Word(word, lang));
 }
 
+string Definition::getWordByLanguage(string lang)
+{
+	cout << "getWordByLanguage()" << endl;
+	cout << "SIZEOF _TRANSLATIONS: " << _translations.size() << endl;
+	for (unsigned int i = 0; i < _translations.size(); i++)
+	{
+		cout << i << endl;
+		if (_translations[i].getLang() == lang)
+		{
+			return _translations[i].getWord();
+		}
+	}
+
+	return "";
+}
+
 bool Definition::isInDefinition(string word)
 {
 	for (unsigned int i = 0; i > _translations.size(); i++)

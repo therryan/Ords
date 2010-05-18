@@ -16,8 +16,6 @@
  *	 If not, see <http://www.gnu.org/licenses/>.
  */
 
-//	Copyright 2010 Teemu Vasama, licensed under the GNU General Public License version 3
-//		See LICENSE for details
 //
 //		srd/data/question.h - The Question-class
 //
@@ -41,6 +39,7 @@ class Question
 		int _elem;	// Points to the current element
 		
 		bool _reverse;
+		string _lang;
 
 	public:
 		Question(Dictionary dict);
@@ -48,7 +47,8 @@ class Question
 		int size();
 		
 		void setReverse(bool reverse);
-		
+		void setLang(string lang);
+
 	 	string ask();		// Returns the question
 		string answer();	// Return the answer
 

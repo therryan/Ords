@@ -48,8 +48,10 @@ class Wrapper
 		// For DefinitionTerm
 		string getTerm();
 		string getDescr();
-
+		
+		// For Definition
 		bool includes(string word);
+		string getWord(string lang);
 
 		string type();
 

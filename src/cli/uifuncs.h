@@ -34,7 +34,7 @@ using std::setw;
 
 namespace ui
 {
-	void ask(bool reverse = false);
+	void ask(string language = "",  bool reverse = false);
 	void open(string file = "");
 	void newDict(string title = "");
 	void use(string title = "");

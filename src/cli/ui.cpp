@@ -60,8 +60,9 @@ bool parse(string input)
 		else if (tokens[0] == "open")	{ui::open();}
 		else if (tokens[0] == "help")	{ui::help();}
 		
-		else if (tokens[0] == "rask")	{ui::ask(true);}	// To reverse
-		else if (tokens[0] == "ask")	{ui::ask(false);}	// or not
+		// The first argument 'language' must be zero-length
+		else if (tokens[0] == "rask")	{ui::ask("", true);}	// To reverse
+		else if (tokens[0] == "ask")	{ui::ask("", false);}	// or not
 		
 		else
 		{
@@ -82,6 +83,10 @@ bool parse(string input)
 		
 		else if (tokens[0] == "def" ||
 				 tokens[0] == "define")	{ui::define(tokens[1]);}
+
+		// Don't ask in reverse, mainly because it doesn't make any sense with Defintions
+		else if (tokens[0] == "ask")	{ui::ask(tokens[1], false);}
+
 		else
 		{
 			cout << "Command '" << tokens[0] << "' doesn't exist. " <<

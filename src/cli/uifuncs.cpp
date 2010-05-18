@@ -20,7 +20,7 @@
 
 namespace ui
 {
-	void ask(bool reverse)
+	void ask(string lang, bool reverse)
 	{
 		srand(time(NULL));
 		
@@ -29,6 +29,11 @@ namespace ui
 		if (reverse == true)
 		{
 			quest.setReverse(true);
+		}
+
+		if (lang.length() > 0)
+		{
+			quest.setLang(lang);
 		}
 		
 		int origSize = quest.size();

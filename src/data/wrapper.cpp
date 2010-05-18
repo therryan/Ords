@@ -48,6 +48,16 @@ string Wrapper::getTerm()
 	return "";
 }
 
+string Wrapper::getDescr()
+{
+	if (_type == "DefinitionTerm")
+	{
+		return _dt.getDescr();
+	}
+
+	return "";
+}
+
 bool Wrapper::includes(string word)
 {
 	if (_def.isInDefinition(word)) 
@@ -58,14 +68,11 @@ bool Wrapper::includes(string word)
 	return false;
 }
 
-string Wrapper::getDescr()
+string Wrapper::getWord(string lang)
 {
-	if (_type == "DefinitionTerm")
-	{
-		return _dt.getDescr();
-	}
-
-	return "";
+	cout << "WRAPPER CALLED" << endl;
+	cout << "WORD: " << _def.getWordByLanguage(lang) << endl;
+	return _def.getWordByLanguage(lang);
 }
 
 string Wrapper::type()
