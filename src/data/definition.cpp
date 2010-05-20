@@ -63,11 +63,8 @@ Definition::Definition(string word, string lang)
 
 string Definition::getWordByLanguage(string lang)
 {
-	cout << "getWordByLanguage()" << endl;
-	cout << "SIZEOF _TRANSLATIONS: " << _translations.size() << endl;
 	for (unsigned int i = 0; i < _translations.size(); i++)
-	{
-		cout << i << endl;
+	{		
 		if (_translations[i].getLang() == lang)
 		{
 			return _translations[i].getWord();
@@ -77,11 +74,11 @@ string Definition::getWordByLanguage(string lang)
 	return "";
 }
 
-bool Definition::isInDefinition(string word)
+bool Definition::isInDefinition(string word, string exclude)
 {
-	for (unsigned int i = 0; i > _translations.size(); i++)
+	for (unsigned int i = 0; i < _translations.size(); i++)
 	{
-		if (word == _translations[i].getWord())
+		if (word == _translations[i].getWord() && word != exclude)
 		{
 			return true;
 		}

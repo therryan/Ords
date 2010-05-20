@@ -63,7 +63,7 @@ class Definition
 		
 		string getWordByLanguage(string lang);
 
-		bool isInDefinition(string word);
+		bool isInDefinition(string word, string exclude);
 
 		string save();	// When Collection::save() is called, this will eventually get called
 		

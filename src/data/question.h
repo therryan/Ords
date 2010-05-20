@@ -49,12 +49,16 @@ class Question
 		void setReverse(bool reverse);
 		void setLang(string lang);
 
+		bool containsType(string type);
 	 	string ask();		// Returns the question
-		string answer();	// Return the answer
+		string answer();	// Returns the answer
 
-		// Checks if 'guess' is correct, deprecates 'answer()', must be used because Definitions have multiple possible answers
-		bool verify(string guess);
-		void remove();		// Removes the previously asked question
+		// Checks if 'guess' is correct, deprecates 'answer()',
+		// must be used because Definitions have multiple possible answers
+		bool verify(string guess, string exclude);
+		
+		// Removes the previously asked question
+		void remove();
 };
 
 #endif

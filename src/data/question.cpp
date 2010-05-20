@@ -23,6 +23,7 @@ Question::Question(Dictionary dict)
 	_dictTitle = dict.getTitle();
 	_dict = dict.getDict();	
 	_reverse = false;
+	_lang = " ";
 }
 
 int Question::size()
@@ -40,30 +41,48 @@ void Question::setLang(string lang)
 	_lang = lang;
 }
 
+bool Question::containsType(string type)
+{
+	if (type != "Definition" && type != "DefinitionTerm" && type != "Conjugation")
+	{
+		throw "Type'" + type + "' doesn't exist.";
+	}
+	
+	for (unsigned int i = 0; i < _dict.size(); i++)
+	{
+		if (_dict[i].type () == type)
+		{
+			return true;
+		}
+	}
+	
+	return false;
+}
+
 string Question::ask()
 {
-	if (_lang.length() > 0 && _dict[_elem].type() == "Definition")
-	{
-		_dict[_elem].getWord(_lang);
-	}
-
 	if (_dict.size() > 0)
 	{
 		_elem = getRand(_dict.size());
 		
-		if (_reverse == true)
+		string type = _dict[_elem].type();
+				
+		if (type == "Definition" && _lang.length() > 0)
 		{
-			return _dict[_elem].getDescr();
+			return _dict[_elem].getWord(_lang);
 		}
-		else
+		
+		if (type == "DefinitionTerm")
 		{
-			return _dict[_elem].getTerm();
+			if (_reverse == true)
+			{
+				return _dict[_elem].getDescr();
+			}
+			else
+			{
+				return _dict[_elem].getTerm();
+			}
 		}
-	}
-
-	if (_dict.size() > 0)
-	{
-		cout << "Definitions exist!" << endl;
 	}
 
 	return false;
@@ -83,19 +102,22 @@ string Question::answer()
 
 	if (_dict.size() > 0 && _dict[_elem].type() == "Definition")
 	{
-		cout << "HELLO" << endl;
-		cout << "ELEM: " << _dict[_elem].getWord(_lang) << endl ;
-		return _dict[_elem].getWord(_lang);		
+		//return _dict[_elem].getWord(_lang);
+		return "MULTIPLE ANSWERS AVAILABE";
 	}
 
 	return "";
 }
 
-bool Question::verify(string guess)
+// Exclude is just the asked form of Definitions, we don't
+// want the user using that
+bool Question::verify(string guess, string exclude)
 {
 	if (_dict.size() > 0)
 	{
-		if (_dict[_elem].type() == "DefinitionTerm")
+		string type = _dict[_elem].type();
+		
+		if (type == "DefinitionTerm")
 		{
 			if (_reverse == true)
 			{
@@ -113,9 +135,9 @@ bool Question::verify(string guess)
 			}
 		}
 
-		if (_dict[_elem].type() == "Definition")
+		if (type == "Definition")
 		{
-			if (_dict[_elem].includes(guess))
+			if (_dict[_elem].includes(guess, exclude))
 			{
 				return true;
 			}

@@ -50,7 +50,7 @@ class Wrapper
 		string getDescr();
 		
 		// For Definition
-		bool includes(string word);
+		bool includes(string word, string exclude);
 		string getWord(string lang);
 
 		string type();
