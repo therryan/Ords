@@ -37,6 +37,7 @@ class Settings
 		static void set(map<string, string>);
 		static string repr();
 		static string defaultConfig();
+		static string wizard();
 		
 		static const float _versionNumber;
 		static const string _versionText;

@@ -37,7 +37,7 @@ bool Settings::init()
 		
 		catch (string error)
 		{
-			writeData(Settings::configPath(), Settings::defaultConfig());
+			writeData(Settings::configPath(), Settings::wizard());
 		}
 	}
 	
@@ -99,6 +99,38 @@ string Settings::defaultConfig()
 	// Location of the data folder
 	config += "datapath=" + home + "/ords";
 	
+	return config;
+}
+
+string Settings::wizard()
+{
+	string config;
+	
+	cout << "It appers that this is the first time you have launched this program. " <<
+			"Do you want to set the settings now (0) or just use the defaults (1, not recommended)?" << endl;
+
+	int ans = getInt();
+
+	if (ans == 1)
+	{
+		return Settings::defaultConfig();
+	}
+
+	string datapath;
+	cout << "Where do you want the data files to be? (Default is ~)" << endl;
+	getline(cin, datapath);
+
+	// For now we can just return the defaultconfig but in the future when there are
+	// more settings we'll have to do some work here
+	if (datapath.length() == 0)
+	{
+		return Settings::defaultConfig();
+	}
+	else
+	{
+		config += "datapath=" + datapath + "/";
+	}
+
 	return config;
 }
 

@@ -34,3 +34,4 @@
 2010-05-21:
 	- Definitions are nearly completely supported, with 'ask'
 	! Version 0.4 RELEASED
+	- Implemented an interactive Settings wizard
