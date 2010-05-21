@@ -34,6 +34,8 @@ using std::setw;
 
 namespace ui
 {
+	// If the first argument is empty (i.e. `open` instead of `open test`),
+	// we know that we need to ask the user about it
 	void ask(string language = "",  bool reverse = false);
 	void open(string file = "");
 	void newDict(string title = "");
@@ -43,9 +45,9 @@ namespace ui
 		bool defDt(DefinitionTerm &dt);
 		
 	void list();
-		void listFile(string file);
-		
+	void listFile(string file);
 	void listDicts();
+
 	void help();
 	void config();
 }

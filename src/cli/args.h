@@ -31,9 +31,11 @@
 #include "../data/data.h"
 #include "../utils/utils.h"
 
-bool parseArgs(int argc, char *argv[]);		// If should continue, return true
+// If should continue, return true
+bool parseArgs(int argc, char *argv[]);
 
-namespace args // A namespace that contains all the functions that take care of a certain switch
+// A namespace that contains all the functions that take care of a certain switch
+namespace args 
 {
 	//void add(string content);
 	void help();

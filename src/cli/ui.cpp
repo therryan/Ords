@@ -21,13 +21,15 @@
 void startUI()
 {
 	string input;
-		
+	
+	// The do-it-all loop, the magic happens here
 	do
 	{
 		input = prompt();
 	} while (parse(input));
 }
 
+// By default `prompt` is ">>> "
 string prompt(string prompt)
 {
 	cout << prompt;
@@ -77,8 +79,8 @@ bool parse(string input)
 	{
 		if (tokens[0] == "list" || tokens[0] == "ls")
 		{
-			if (tokens[1] == "-d")	{ui::listDicts();}
-			else					{ui::listFile(tokens[1]);}
+			if (tokens[1] == "-d")		{ui::listDicts();}
+			else						{ui::listFile(tokens[1]);}
 		}
 		else if (tokens[0] == "new")	{ui::newDict(tokens[1]);}
 		else if (tokens[0] == "use")	{ui::use(tokens[1]);}

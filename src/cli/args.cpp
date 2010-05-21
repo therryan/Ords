@@ -18,9 +18,10 @@
 
 #include "args.h"
 
+// The same arguments the main() has
 bool parseArgs(int argc, char *argv[])
 {
-	using namespace std;
+	//using namespace std;
 	vector<string> args;
 	string programName = argv[0];
 	
@@ -29,7 +30,8 @@ bool parseArgs(int argc, char *argv[])
 		
 	else if (argc > 1)
 	{
-		for (int i = 1; i < argc; i++) // Transitions all the arguments from char** to vector
+		// Transitions all the arguments from char** to vector
+		for (int i = 1; i < argc; i++) 
 		{
 			args.push_back(argv[i]);
 		}
@@ -52,19 +54,22 @@ bool parseArgs(int argc, char *argv[])
 			//args::add();
 		}
 		
-		else if (args[0] == "-v")
+		else if (args[0] == "-v" ||
+				 args[0] == "--version")
 		{
 			args::version();
 		}
-		
-		else	// If an argument is unknown, inform the user about it
+
+		// If an argument is unknown, inform the user about it
+		else 
 		{
 			cout << "Unknown argument '" + args[0] + "'" << endl;
 			args.erase(args.begin());
 		}
 	}
-	
-	return false; // Don't go to the interactive mode
+
+	// Don't go to the interactive mode
+	return false; 
 }
 
 namespace args
@@ -72,7 +77,7 @@ namespace args
 	//void add(string content)
 	void help()
 	{	
-		;
+		
 	}
 	void read(string target)
 	{
@@ -87,7 +92,7 @@ namespace args
 	}
 	void version()
 	{
-		cout << "ords version " << Settings::version() << endl;
-		cout << "version text: " << Settings::versionInfo() << endl;
+		cout << "ords version:" << Settings::version() << endl;
+		cout << "modified last on: " << Settings::versionInfo() << endl;
 	}
 }

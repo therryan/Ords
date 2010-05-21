@@ -23,9 +23,11 @@ namespace ui
 	void ask(string lang, bool reverse)
 	{
 		srand(time(NULL));
-		
+
+		// Get a Question-object from the current dictionary
 		Question quest = Collection::getQuestion();
 		
+		// When `rask` was used
 		if (reverse == true)
 		{
 			quest.setReverse(true);
@@ -36,6 +38,8 @@ namespace ui
 		{
 			quest.setLang(lang);
 		}
+
+		// If we weren't given a language but there still are defs
 		else
 		{
 			if (quest.containsType("Definition"))
@@ -65,7 +69,9 @@ namespace ui
 						
 			string answer;
 			getline(cin, answer);
-
+			
+			// The second argument is `exclude`, so that when we are asking questions
+			// based on defs, we don't want the question to also be the answer
 			if (quest.verify(answer, quest.answer()))
 			{
 				cout << "Correct!" << endl;
@@ -114,6 +120,7 @@ namespace ui
 	
 	void use(string title)
 	{
+		// We don't want to try use a dict if there are none
 		if (Collection::size() > 0)
 		{
 			if (title.length() == 0)
@@ -132,6 +139,8 @@ namespace ui
 	
 	void define(string choice)
 	{
+		// If there are no dicts, where would our defs go? :(
+		// So that's why we're creating a new dict here
 		if (Collection::size() == 0)
 		{
 			cout << "There are no dictionaries present, " << 
@@ -153,6 +162,9 @@ namespace ui
 			while (again == true)
 			{
 				DefinitionTerm dt;
+
+				// defDt() return false if the user doesn't want to continue
+				// And the argument is passed by reference, so the Sun shines
 				again = defDt(dt);
 				
 				if (again == true)
@@ -162,7 +174,7 @@ namespace ui
 			}
 		}
 		else if (which == 1 || choice == "def" || choice == "definition" ||
-				choice == "word")
+				 choice == "word")
 		{
 			Definition def;
 			defDefinition(def);
@@ -193,6 +205,7 @@ namespace ui
 			
 			if (lang.length() == 0)
 			{
+				// Add it without the language
 				def.add(word);
 			}
 			else
@@ -266,12 +279,14 @@ namespace ui
 						
 						else
 						{
+							// Some more or less black magic going on here to get it look pretty
 							defs << word[0] + ":   " << setw(5) << word[1] << endl;
 						}
 					}						
 				}				
 			}
 		}	
+		// Catching readData()'s 'file doesn't exist'-error
 		catch (string error)
 		{
 			cout << error << endl;
@@ -302,7 +317,10 @@ namespace ui
 	{
 		cout << "\t" << "ask" << "\n"
 			 	<< "\t\tAsks all the definitions in the current dictionary\n"
-			
+			 
+			 << "\t" << "config" << "\n"
+			 	<< "\t\tAllows you to change the settings without having to modify the config file\n"
+
 			 << "\t" << "rask" << "\n" 
 			 	<< "\t\tAsks Y->X instead of X->Y\n"
 			
