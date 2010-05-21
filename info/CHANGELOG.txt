@@ -30,3 +30,7 @@
 
 2010-05-18:
 	- Started the preliminary work in order to support the 'ask' command in conjunction woth Definitions
+
+2010-05-21:
+	- Definitions are nearly completely supported, with 'ask'
+	! Version 0.4 RELEASED

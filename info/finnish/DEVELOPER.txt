@@ -1,0 +1,42 @@
+TIEDOSTOFORMAATTI
+
+- Tiedostoformaatti on melko yksinkertainen. Kaikki tiedostot päättyvät `.ords`-päätteeseen.
+Yleinen tiedostoformaatti on seuraava:
+	- Yksi määrittely(joukko) riville.
+	- Jokainen rivi loppuu puolipisteeseen `;`.
+	- DefinitionTermit käyttävät rakennetta `X:>Y;\n`, jossa X on "kysymys" ja Y "vastaus", kun kyselyyn käytetään `ask`-komentoa. Järjestyksen voi kääntää käyttämällä `rask`-komentoa (reverse ask). DefinitionTermejä voi olla vain yksi jokaisella rivillä.
+	- Definitionit ovat muotoa `1:A;2:B;3:C;\n`, jossa (tässä tapauksessa) numerot edustavat kieliä ja kirjaimet sanoja.
+	- Täysi esimerkki:
+	
+		Finnish:hei;English:hello;French:salut;Swedish:hej;Spanish:hola;
+		ords:>ohjelma, jolla voi muun muassa harjoittaa sanastoaan;
+		Finnish:yksi;English:one;Swedish:en, ett;French:un, une;
+		
+	Esimerkissä määriteltiin kaksi Definitionia ja yksi DefinitionTerm.
+
+
+OHJELMAN RAKENNE JA TOIMINTA
+
+- Aina kun Ords käynnistyy, suoritetaan ensimmäisenä `init()`-funktio, joka kutsuu `Settings::init()`-funktiota ladaten asetukset asetustiedostosta.
+
+- Vastaavasti viimeinen kutsuttava funktio on `deinit()` (kummatkin löytyvät `src/init/init.*`), joka aiheuttaa asetustiedoston ja datatiedostojen tallentamisen kiintolevylle (`Settings::save()` ja `Collection::save()` -funktiot).
+
+- Mikäli kumpikaan edellämainituista funktioista palauttaa totuusarvon `false`, ohjelma lopettaa välittömästi
+
+- Seuraavaksi tarkistetaan, että onko mitään komentoriviargumentteja (`parseArgs()`) ja mikäli näin on, ne käsitellään, jonka jälkeen ohjelma lopettaa. Jos argumentteja ei ole, kutsutaan `startUI()`-funktiota, joka sisältää silmukan, jossa vain kutsutaan `ui`:n `parse()`-funktiota. Se sitten kutsuu kaikkia vastaavia `uifuncs`-funktioita. Mikäli käyttäjä antaa komennon `exit`, silmukka päättyy ja ohjelma loppuu.
+
+DATAHIERARKIA
+
+- Hierarkiaan kuuluvat seuraavat luokat: Collection, Dictionary, Wrapper, DefinitionTerm, Definition ja Conjugation, Word (myös Question-luokka käsittelee dataa).
+
+- Ylimpänä on stattinen Collection-luokka, joka sisältää vektorin Dictionary-olioita. Collection on ikään kuin kirjahylly, se sisältää kaiken-
+
+- Jokainen Dictionary-olio sisältää vektorin Wrapper-olioita. Dictionary on yksi kokonaisuus, kuten yksi kirja. Jokainen .ords-tiedosto on oma Dictionarynsä.
+
+- Jokainen Wrapper-olio voi olla joko DefinitionTerm, Definition tai Conjugation (tulevaisuudessa mahdollisesti muutakin). Tämä abstraktio on tehty siksi, että jokainen edelle mainituista luokista vaatii omat metodinsa ja omat vektorinsa, jolloin monessa kohtaa ohjelmaa tulisi tehdä koodia, joka pystyy sen mukaan, että mikä tyyppi on kyseessä suorittaa jotain tiettyä koodia. Nyt tämä kaikki koodi on kasattu yhteen luokkaan, joten esim. Question-luokan ei tarvitse juuri välitää mitä eri datatyyppejä siellä on, tai ainakin se on helpompaa.
+
+- DefinitionTerm sisältää vain "kysymyksen" ja "vastauksen".
+
+- Definition sisältää vektorin Word-olioita, joilla jokaisella on sana ja kieli.
+
+- Conjugation tulee sisältämään mahdollisuuden tehdä yksi kokonaisuus esim. jonkun verbin kaikista taivutuskaavoista. Ei ole vielä tehty.

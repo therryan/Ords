@@ -2,4 +2,3 @@
 - Settings & configuration
 - What's going on under the hood
 - Explanation of the different files
-

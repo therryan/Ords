@@ -1,0 +1,9 @@
+ASETUKSET JA KONFIGURAATIO
+
+Asetustiedosto sijaitsee käyttäjän kotikansiossa `~/.ords.conf`. Sen sijaintia ei voi vaihtaa muuttamatta lähdekoodia.
+Asetustiedoston direktiivit:
+
+	datapath=<path/to/data/folder>
+		osoittaa sinne, missä .ords-tiedostoja tulisi säilyttää
+		
+KÄYTTÖ JA KOMENNOT

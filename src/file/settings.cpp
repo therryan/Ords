@@ -18,8 +18,8 @@
 
 #include "settings.h"
 
-const string Settings::_versionText = "09.05.2010";
-const float Settings::_versionNumber = 0.32;
+const string Settings::_versionText = "21.05.2010";
+const float Settings::_versionNumber = 0.4;
 string Settings::_dataPath = "";
 
 bool Settings::init()

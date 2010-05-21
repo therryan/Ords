@@ -37,6 +37,7 @@ string prompt(string prompt)
 	return input;
 }
 
+// Matches the user input with the correct functions
 bool parse(string input)
 {
 	if (input.length() == 0)
