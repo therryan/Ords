@@ -30,10 +30,25 @@ namespace ui
 		{
 			quest.setReverse(true);
 		}
-
+		
+		// If the language was given i.e. we have defs coming
 		if (lang.length() > 0)
 		{
 			quest.setLang(lang);
+		}
+		else
+		{
+			if (quest.containsType("Definition"))
+			{
+				cout << "Enter the language you want the questions to be from" << endl;
+				string language;
+				getline(cin, language);
+				
+				if (language.length() > 0)
+				{
+					quest.setLang(language);
+				}
+			}
 		}
 		
 		int origSize = quest.size();
@@ -46,12 +61,12 @@ namespace ui
 		while (quest.size() > 0)
 		{
 			cout << quest.size() << "/" << origSize << " left!" << endl;
-			cout << quest.ask() << endl;	
-			
+			cout << quest.ask() << endl;
+						
 			string answer;
 			getline(cin, answer);
 
-			if (quest.verify(answer))
+			if (quest.verify(answer, quest.answer()))
 			{
 				cout << "Correct!" << endl;
 				quest.remove();

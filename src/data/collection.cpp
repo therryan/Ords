@@ -55,7 +55,7 @@ void Collection::load(string file)
 {
 	Dictionary dict(file);
 	bool success = dict.load(file);
-		
+			
 	if(success == true)
 	{
 		_collection.push_back(dict);

@@ -58,9 +58,9 @@ string Wrapper::getDescr()
 	return "";
 }
 
-bool Wrapper::includes(string word)
+bool Wrapper::includes(string word, string exclude)
 {
-	if (_def.isInDefinition(word)) 
+	if (_def.isInDefinition(word, exclude)) 
 	{
 		return true;
 	}
@@ -70,8 +70,6 @@ bool Wrapper::includes(string word)
 
 string Wrapper::getWord(string lang)
 {
-	cout << "WRAPPER CALLED" << endl;
-	cout << "WORD: " << _def.getWordByLanguage(lang) << endl;
 	return _def.getWordByLanguage(lang);
 }
 

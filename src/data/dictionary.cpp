@@ -61,10 +61,14 @@ bool Dictionary::load(string file)
 					
 	vector<string> dict = split(data, "\n"); // Splits to lines
 				
+	// Work on every line
 	for (unsigned int i = 0; i < dict.size(); i++)
 	{
+		// We must have this so that we can add to this temporarily and add it later
+		Definition *definition = new Definition();
 		vector<string> def = split(dict[i], ";");
 		
+		// Work on every pair		
 		for (unsigned int i = 0; i < def.size(); i++)
 		{						
 			vector<string> word = split(def[i], ":");
@@ -80,13 +84,17 @@ bool Dictionary::load(string file)
 				// Defs are in the form of X:Y;
 				else
 				{
-					_dict.push_back(Wrapper(Definition(word[0], word[1])));
+					definition->add(Word(word[1], word[0]));
 				}
 			}						
-		}				
+		}
+		
+		_dict.push_back(Wrapper(*definition));
+		
+		delete definition;	
 	}
 	
-	return true;	// Loading went fine, add to Collection
+	return true;	// Loading was successful, add to Collection
 }
 
 // Call save() on all wrappers
