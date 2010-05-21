@@ -65,6 +65,8 @@ bool parse(string input)
 		else if (tokens[0] == "rask")	{ui::ask("", true);}	// To reverse
 		else if (tokens[0] == "ask")	{ui::ask("", false);}	// or not
 		
+		else if (tokens[0] == "config")	{ui::config();}
+
 		else
 		{
 			cout << "Command '" << tokens[0] << "' doesn't exist. Type help " <<

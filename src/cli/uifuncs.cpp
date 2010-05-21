@@ -279,7 +279,25 @@ namespace ui
 		
 		cout << defs.str() << endl << dts.str() << endl;
 	}
-	
+
+	void config()
+	{
+		cout << "What do you want to change?" << endl;
+		cout << "(1) datapath" << endl;
+		
+		int ans = getInt();
+		
+		if (ans == 1)
+		{
+			cout << "Current value: " << Settings::dataPath() << endl;
+			cout << "New value ?: ";
+			string datapath;
+			getline(cin, datapath);
+
+			Settings::setDirective("datapath", datapath);
+		}
+	}
+
 	void help()
 	{
 		cout << "\t" << "ask" << "\n"

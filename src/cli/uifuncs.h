@@ -47,6 +47,7 @@ namespace ui
 		
 	void listDicts();
 	void help();
+	void config();
 }
 
 #endif

@@ -134,6 +134,14 @@ string Settings::wizard()
 	return config;
 }
 
+void Settings::setDirective(string directive, string content)
+{
+	if (directive == "datapath" && content.length() > 0)
+	{
+		_dataPath = content;
+	}
+}
+
 string Settings::configPath()
 {
 	// NOTE: This is the hardcoded location of the default config file

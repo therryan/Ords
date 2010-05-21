@@ -47,6 +47,8 @@ class Settings
 		static bool init();
 		static bool save();
 		
+		static void setDirective(string directive, string content);
+
 		static string configPath();
 		static string dataPath(string file = "");
 		static float version();
