@@ -6,20 +6,19 @@
  * 		You can find the GPLv3 license in the LICENSE file or
  * by going to <http://www.gnu.org/licenses/> */
 
-#ifndef CONJUGATION_H
-#define CONJUGATION_H 
+#ifndef ARGS_PARSER_H
+#define ARGS_PARSER_H
 
 #include "../utils/utils.h"
 
-class Conjugation
+class ArgsParser
 {
 	private:
+		ArgsParser();
+
 
 	public:
-		Conjugation();
-		
-		string save();
-		string repr();
+	
 };
 
 #endif

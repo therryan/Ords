@@ -1,27 +1,15 @@
-/* Copyright 2010 Teemu Vasama. Ords is distributed under the GPLv3.
- *
- * This file is part of Ords.
- *
- *   Ords is free software: you can redistribute it and/or modify
- *   it under the terms of the GNU General Public License version 3
- *   as published by the Free Software Foundation.
- *
- *   Ords is distributed in the hope that it will be useful,
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *   GNU General Public License for more details.
- *
- *   You should have received a copy of the GNU General Public License 
- *	 (the LICENSE file) along with Ords.
- *	 If not, see <http://www.gnu.org/licenses/>.
- */
+/* *** Copyright 2010 Teemu Vasama ***
+ * 		This file is part of Ords, which is free software so you can
+ * redistribute it and modify it under the terms and conditions of the GPLv3,
+ * (GNU General Public License version 3) made by the FSF.
+ * 		There is NO WARRANTY whatsoever (See LICENSE for details).
+ * 		You can find the GPLv3 license in the LICENSE file or
+ * by going to <http://www.gnu.org/licenses/> */
 
 #include "args.h"
 
-// The same arguments the main() has
 bool parseArgs(int argc, char *argv[])
 {
-	//using namespace std;
 	vector<string> args;
 	string programName = argv[0];
 	
@@ -38,27 +26,19 @@ bool parseArgs(int argc, char *argv[])
 
 		if (args[0] == "-h" ||
 		 	args[0] == "--help")
-		{
-			args::help();
-		}
+				{args::help();}
 		
-		else if ((args[0] == "-r" ||
-		 		  args[0] == "--read") && args.size() > 1)
-		{
-			args::read(args[1]);
-		}
+		else if ((args[0] == "-r" || args[0] == "--read") &&
+		 		  args.size() > 1)
+				{args::read(args[1]);}
 		
 		else if (args[0] == "-a" ||
 				 args[0] == "--add")
-		{
-			//args::add();
-		}
+				{/*args::add();*/}
 		
 		else if (args[0] == "-v" ||
 				 args[0] == "--version")
-		{
-			args::version();
-		}
+				{args::version();}
 
 		// If an argument is unknown, inform the user about it
 		else 
@@ -74,22 +54,33 @@ bool parseArgs(int argc, char *argv[])
 
 namespace args
 {
-	//void add(string content)
-	void help()
-	{	
+	void add(string content)
+	{
 		
 	}
-	void read(string target)
+	
+	void ask(string lang, bool reverse)
+	{
+		
+	}
+	
+	void help()
+	{	
+		cout << "";
+	}
+	
+	void read(string file)
 	{
 		try
 		{
-			readData(target);
+			readData(file);
 		}
 		catch (string error)
 		{
 			cout << "ERROR: " + error << endl;
 		}	
 	}
+	
 	void version()
 	{
 		cout << "ords version:" << Settings::version() << endl;

@@ -1,0 +1,51 @@
+A listing of all the files and what they do
+
+src/cli/
+	args.h, args.cpp:
+		Responsible for the CLI-argument interface
+	args_parser.h, args_parser.cpp:
+		Contains the ArgsParser-class, which is a handy abstraction for dealing with the arguments
+	cli.h:
+		Contains the #include directives for importing all the other cli-files
+	ui.h, ui.cpp:
+		Responsible for the interactive mode
+	uifuncs.h, uifuncs.cpp:
+		Contains the functions that 'ui' calls
+	
+src/data/
+	collection.h, collection.cpp:
+		Sisältää datahierarkian korkeimman askeleen, stattisen 'Collection'-luokan
+	conjugation.h, conjugation.cpp:
+		Tulee sisältämään 'Conjugation'-luokan (Ei vielä valmis)
+	data.h:
+		Contains the #include directives for importing all the other cli-files
+	def_term.h, def_term.cpp:
+		Sisältää 'DefinitionTerm'-luokan
+	definition.h, definition.cpp:
+		Sisältää 'Definition'-luokan
+	dictionary.h, dictionary.cpp:
+		Sisältää 'Dictionary'-luokan, hierarkiassa 'Collection':in jälkeen seuraavan askeleen
+	question.h, question.cpp:
+		Sisältää 'Question'-luokan, jotta käyttää 'uifuncs':in 'ask()'-funktio
+	wrapper.h, wrapper.cpp:
+		Sisältää 'Wrapper'-luokan, joka pystyy "korvaamaan" 'Conjugation'-olion, 'DefinitionTerm'-olion tai 'Definition'-olion. Tämä siksi, että ei tarvitse määritellä useita eri vektoreita jokaiselle datatyypille
+	
+src/file/
+	file.h, file.cpp:
+		Contains the #include directives for importing all the other cli-files, sekä funktiot datan kirjoittamiseen ja lukemiseen, jotka tosin vain käyttävät 'plaintext':in vastaavia funktioita, mutta tämä järjestely on todella kätevä jos joskus pitää myös alkaa tukea jotain muuta tapaa säilöä dataa kuin pelkkä teksti, kuten tietokantoja
+	plaintext.h, plaintext.cpp:
+		Sisältää funktiot datan lukemiseen ja kirjoittamiseen tekstitiedostoista
+	settings.h, settings.cpp:
+		Sisältää staattisen 'Settings'-luokan, joka pitää huolta asetuksista ja asetustiedostoista
+			
+src/utils/
+	using.h:
+		Sisältää kaikki yleisimmin käytetyt #include-käskyt, kuten <iostream>, <string> ja <vector>. Tuo ne myös käytettäviksi 'using std::vector'-tyylisillä käskyillä. Sisällytetään jokaiseen tiedostoon.
+	utils.h, utils.cpp:
+		Sisältää yleishyödyllisiä funktioita, jotka pitäisi olla standardikirjastossa mukana.
+			
+src/ords.cpp:
+	Sisältää 'main()'-funktion ja siten kutsuu kaikki muut
+		
+info/:
+	Contains all the documentation and guides

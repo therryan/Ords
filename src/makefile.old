@@ -1,4 +1,4 @@
-OBJS = ords.o file.o plaintext.o settings.o args.o ui.o uifuncs.o init.o definition.o def_term.o dictionary.o question.o conjugation.o  collection.o utils.o wrapper.o
+OBJECTS = args.o args_parser.o collection.o conjugation.o definition.o def_term.o dictionary.o file.o init.o ords.o plaintext.o question.o settings.o ui.o uifuncs.o utils.o wrapper.o
 
 ords: $(OBJS)
 	g++ -o ords $(OBJS)
@@ -17,6 +17,9 @@ settings.o: file/settings.cpp file/settings.h
 	
 args.o: cli/args.cpp cli/args.h
 	g++ -Wall -pedantic -c cli/args.cpp
+	
+args_parser.o: cli/args_parser.cpp cli/args_parser.h
+	g++ -Wall -pedantic -c cli/args_parser.cpp
 	
 ui.o: cli/ui.cpp cli/ui.h
 	g++ -Wall -pedantic -c cli/ui.cpp

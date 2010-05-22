@@ -1,40 +1,28 @@
-/* Copyright 2010 Teemu Vasama. Ords is distributed under the GPLv3.
- *
- * This file is part of Ords.
- *
- *   Ords is free software: you can redistribute it and/or modify
- *   it under the terms of the GNU General Public License version 3
- *   as published by the Free Software Foundation.
- *
- *   Ords is distributed in the hope that it will be useful,
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *   GNU General Public License for more details.
- *
- *   You should have received a copy of the GNU General Public License 
- *	 (the LICENSE file) along with Ords.
- *	 If not, see <http://www.gnu.org/licenses/>.
- */
-
-// 
-// 		src/cli/uifuncs.cpp
-// 	
-// Contains the functions that ui's parse() calls
-//
+/* *** Copyright 2010 Teemu Vasama ***
+ * 		This file is part of Ords, which is free software so you can
+ * redistribute it and modify it under the terms and conditions of the GPLv3,
+ * (GNU General Public License version 3) made by the FSF.
+ * 		There is NO WARRANTY whatsoever (See LICENSE for details).
+ * 		You can find the GPLv3 license in the LICENSE file or
+ * by going to <http://www.gnu.org/licenses/> */
 
 #ifndef UIFUNCS_H
 #define UIFUNCS_H 
 
 #include <iomanip>
-
-#include "../data/data.h"
 #include "../utils/utils.h"
+
+#include "../data/collection.h"
+#include "../data/definition.h"
+#include "../data/def_term.h"
+#include "../data/question.h"
+#include "../file/settings.h"
 
 using std::setw;
 
 namespace ui
 {
-	// If the first argument is empty (i.e. `open` instead of `open test`),
+	// If the first argument is empty (i.e. 'open' instead of 'open test'),
 	// we know that we need to ask the user about it
 	void ask(string language = "",  bool reverse = false);
 	void open(string file = "");
@@ -47,7 +35,6 @@ namespace ui
 	void list();
 	void listFile(string file);
 	void listDicts();
-
 	void help();
 	void config();
 }

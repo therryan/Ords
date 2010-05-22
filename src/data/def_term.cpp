@@ -1,25 +1,14 @@
-/* Copyright 2010 Teemu Vasama. Ords is distributed under the GPLv3.
- *
- * This file is part of Ords.
- *
- *   Ords is free software: you can redistribute it and/or modify
- *   it under the terms of the GNU General Public License version 3
- *   as published by the Free Software Foundation.
- *
- *   Ords is distributed in the hope that it will be useful,
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *   GNU General Public License for more details.
- *
- *   You should have received a copy of the GNU General Public License 
- *	 (the LICENSE file) along with Ords.
- *	 If not, see <http://www.gnu.org/licenses/>.
- */
+/* *** Copyright 2010 Teemu Vasama ***
+ * 		This file is part of Ords, which is free software so you can
+ * redistribute it and modify it under the terms and conditions of the GPLv3,
+ * (GNU General Public License version 3) made by the FSF.
+ * 		There is NO WARRANTY whatsoever (See LICENSE for details).
+ * 		You can find the GPLv3 license in the LICENSE file or
+ * by going to <http://www.gnu.org/licenses/> */
 
 #include "def_term.h"
 
-DefinitionTerm::DefinitionTerm() // Questioning the existance of this poor thing...
-{}
+DefinitionTerm::DefinitionTerm() {}
 
 DefinitionTerm::DefinitionTerm(string term, string descr)
 {
@@ -47,14 +36,6 @@ void DefinitionTerm::setDescr(string descr)
 	_descr = descr;
 }
 
-/* The file format for DefinitionTerms is this:
-
- *		TERM:>DESCRIPTION;	as in
- *		hello:>moi;
-
- * Only one dt can be put on a single line!
- * Again, it would be awesome if the last line was empty
- */
 string DefinitionTerm::save()
 {
 	string data;
@@ -65,16 +46,6 @@ string DefinitionTerm::save()
 	return data;
 }
 
-/* DTs are repr'd like this:
- 
- *		TERM:
- *		(\t)	DESCR(\n)
-
- * For example:
-
- *		hello:
- *			moi
- */
 string DefinitionTerm::repr()
 {
 	stringstream ss;

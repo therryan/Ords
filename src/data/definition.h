@@ -1,35 +1,17 @@
-/* Copyright 2010 Teemu Vasama. Ords is distributed under the GPLv3.
- *
- * This file is part of Ords.
- *
- *   Ords is free software: you can redistribute it and/or modify
- *   it under the terms of the GNU General Public License version 3
- *   as published by the Free Software Foundation.
- *
- *   Ords is distributed in the hope that it will be useful,
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *   GNU General Public License for more details.
- *
- *   You should have received a copy of the GNU General Public License 
- *	 (the LICENSE file) along with Ords.
- *	 If not, see <http://www.gnu.org/licenses/>.
- */
-
-// 
-// 		src/data/definition.h -- The Definition class (and the Word class)
-// 	
-// A Word is the smallest unit in the hiearachy,
-// one word + language
-//
-// A Definition is a collection of Words
+/* *** Copyright 2010 Teemu Vasama ***
+ * 		This file is part of Ords, which is free software so you can
+ * redistribute it and modify it under the terms and conditions of the GPLv3,
+ * (GNU General Public License version 3) made by the FSF.
+ * 		There is NO WARRANTY whatsoever (See LICENSE for details).
+ * 		You can find the GPLv3 license in the LICENSE file or
+ * by going to <http://www.gnu.org/licenses/> */
 
 #ifndef DEFINITION_H
 #define DEFINITION_H
 
-#include "def_term.h"
-
 #include "../utils/utils.h"
+
+#include "def_term.h"
 
 class Word
 {
@@ -57,19 +39,12 @@ class Definition
 		Definition();
 		Definition(DefinitionTerm dt);		// For creating a def from a dt
 		Definition(Word word);				// For creating a def from a Word
-		
-		// To be deprecated?? One can just do foo(Word(word, lang))?
-		Definition(string word, string lang);
-		
+				
 		string getWordByLanguage(string lang);
-
 		bool isInDefinition(string word, string exclude);
 
 		string save();	// When Collection::save() is called, this will eventually get called
-		
 		void add(Word word);
-		void add(string word, string lang); // Also to be deprecated (see above)??
-		
 		string repr();	// Returns the smart representation of the object
 };
 

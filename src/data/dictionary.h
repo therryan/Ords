@@ -1,41 +1,24 @@
-/* Copyright 2010 Teemu Vasama. Ords is distributed under the GPLv3.
- *
- * This file is part of Ords.
- *
- *   Ords is free software: you can redistribute it and/or modify
- *   it under the terms of the GNU General Public License version 3
- *   as published by the Free Software Foundation.
- *
- *   Ords is distributed in the hope that it will be useful,
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *   GNU General Public License for more details.
- *
- *   You should have received a copy of the GNU General Public License 
- *	 (the LICENSE file) along with Ords.
- *	 If not, see <http://www.gnu.org/licenses/>.
- */
-
-// 
-// 		src/data/dictionary.h -- The Dictionary class
-// 	
-// A Dictionary contains many Definitions and/or DefinitionTerms
-//
+/* *** Copyright 2010 Teemu Vasama ***
+ * 		This file is part of Ords, which is free software so you can
+ * redistribute it and modify it under the terms and conditions of the GPLv3,
+ * (GNU General Public License version 3) made by the FSF.
+ * 		There is NO WARRANTY whatsoever (See LICENSE for details).
+ * 		You can find the GPLv3 license in the LICENSE file or
+ * by going to <http://www.gnu.org/licenses/> */
 
 #ifndef DICTIONARY_H
 #define DICTIONARY_H
 
-#include "../file/file.h"
 #include "../utils/utils.h"
 
-#include "definition.h"
-#include "def_term.h"
+#include "../file/file.h"
+#include "../file/settings.h"
 #include "wrapper.h"
 
 class Dictionary
 {
 	private:
-		string _dictTitle;				// The title (filename) of the dict
+		string _dictTitle;	// The title (filename) of the dict
 		vector<Wrapper> _dict;
 		
 	public:

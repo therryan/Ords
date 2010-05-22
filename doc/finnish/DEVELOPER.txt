@@ -40,3 +40,67 @@ DATAHIERARKIA
 - Definition sisältää vektorin Word-olioita, joilla jokaisella on sana ja kieli.
 
 - Conjugation tulee sisältämään mahdollisuuden tehdä yksi kokonaisuus esim. jonkun verbin kaikista taivutuskaavoista. Ei ole vielä tehty.
+
+OHJELMOINTISTANDARDI
+
+#include-direktiivien järjestys:
+
+	1. Standardikirjastoon kuuluvat (esim. <iostream>)
+	2. Kolmannen osapuolen kirjastot (esim. <boost/regex.hpp)
+	3. Kaikkiin tiedostoihin sisällytettävät ("utils/utils.h")
+	4. Muissa kansioissa olevat (esim. "../file/file.h")
+	5. Samassa kansiossa olevat (esim. "definition.h")
+	
+	Kaikki tietyn kohdan sisällä olevat käskyt järjestään aakkosjärjestykseen.
+	2., ja 3. jälkeen tulee rivinvaihto.
+	
+Ohjelmointityyli
+
+	- Indentaatioon käytetään tabulaattoria, jonko leveys on neljä rivinvaihtoa.
+	- Aaltosuluissa käytetään Allmanin tyyliä ja yhteenkuuluvat lausekkeet kirjoitetaan yhteen:
+	
+		if (x == y)
+		{
+			doSomething();
+		}
+		else
+		{
+			doSomethingElse();
+		}
+		
+	- Mikäli sulkuihin tulisi vain yksi lauseke, voidaan kirjoittaa:
+		
+		if (x == y)
+			{doSomething();}
+		else
+			{doSomethingElse();}
+			
+	tai jopa
+		
+		if (x == y)	{doSomething();}
+		else		{doSomethingElse();}
+		
+		
+	- Kaikki operaattorit erotetaan välilyönneillä: "a = b + c - d"
+	- Muuttujat ja funktiot alkavat pienellä kirjaimella, luokat isolla, uudet sanat erotetaan isolla kirjailmella (CamelCase):
+	
+		int numberOfChocolateBarsLeft;
+		void doSomething();
+		class FooBar;
+		
+	- return-lauseen on oltava funktion viimeisellä rivillä ja sen yläpuolella yksi tyhjä rivi, paitsi jos return-lause on siellä vain varoitusten poistamiseksi tai jos se on funktion ainoa lause.
+	
+	- Luokissa olevat asiat määritellään seuraavassa järjestyksessä:
+	
+		1. Private
+		2. Protected
+		3. Public
+		
+	ja niissä kaikki määritellään seuraavasti:
+		
+		1. Constructor
+		2. Destructor
+		3. Saantimetodit (getFoo())
+		4. Asettajametodit (setFoo())
+		5. Muut metodit
+		6. Muuttujat	

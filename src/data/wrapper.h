@@ -1,34 +1,19 @@
-/* Copyright 2010 Teemu Vasama. Ords is distributed under the GPLv3.
- *
- * This file is part of Ords.
- *
- *   Ords is free software: you can redistribute it and/or modify
- *   it under the terms of the GNU General Public License version 3
- *   as published by the Free Software Foundation.
- *
- *   Ords is distributed in the hope that it will be useful,
- *   but WITHOUT ANY WARRANTY; without even the implied warranty of
- *   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- *   GNU General Public License for more details.
- *
- *   You should have received a copy of the GNU General Public License 
- *	 (the LICENSE file) along with Ords.
- *	 If not, see <http://www.gnu.org/licenses/>.
- */
-
-// 
-// 		src/data/wrapper.h -- The Wrapper class
-// 	
-// The Wrapper class can hold any definition-object, like a Definition, a DefinitionTerm or a Conjugation
+/* *** Copyright 2010 Teemu Vasama ***
+ * 		This file is part of Ords, which is free software so you can
+ * redistribute it and modify it under the terms and conditions of the GPLv3,
+ * (GNU General Public License version 3) made by the FSF.
+ * 		There is NO WARRANTY whatsoever (See LICENSE for details).
+ * 		You can find the GPLv3 license in the LICENSE file or
+ * by going to <http://www.gnu.org/licenses/> */
 
 #ifndef WRAPPER_H
 #define WRAPPER_H
 
 #include "../utils/utils.h"
 
+#include "conjugation.h"
 #include "definition.h"
 #include "def_term.h"
-#include "conjugation.h"
 
 class Wrapper
 {
@@ -45,11 +30,11 @@ class Wrapper
 		Wrapper(DefinitionTerm dt);
 		Wrapper(Conjugation conj);
 
-		// For DefinitionTerm
+	 	/* For DefinitionTerm */
 		string getTerm();
 		string getDescr();
 		
-		// For Definition
+		/* For Definition */
 		bool includes(string word, string exclude);
 		string getWord(string lang);
 
