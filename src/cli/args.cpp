@@ -12,7 +12,7 @@ bool parseArgs(int argc, char *argv[])
 		
 	else if (argc > 1)
 	{
-		// Initialize the ArguentParser
+		// Initialize the ArgumentParser
 		ArgsParser::load(argc, argv);
 		
 		// As long as there are some args left
