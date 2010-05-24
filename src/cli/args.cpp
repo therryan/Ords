@@ -1,50 +1,67 @@
 /* *** Copyright 2010 Teemu Vasama ***
- * 		This file is part of Ords, which is free software so you can
- * redistribute it and modify it under the terms and conditions of the GPLv3,
- * (GNU General Public License version 3) made by the FSF.
- * 		There is NO WARRANTY whatsoever (See LICENSE for details).
- * 		You can find the GPLv3 license in the LICENSE file or
- * by going to <http://www.gnu.org/licenses/> */
+ * This program is licensed under the terms of the GPLv3 license.
+ * You can find it in the LICENSE file or from <http://www.gnu.org/licenses/>.
+ * This software comes with NO WARRANTY WHATSOEVER! */
 
 #include "args.h"
 
 bool parseArgs(int argc, char *argv[])
-{
-	vector<string> args;
-	string programName = argv[0];
-	
-	if (argc == 1)	   // argv[0] is always the name of the program, the size is always >0
+{	
+	if (argc == 1)	   // argv[0] is always the name of the program, the size is always > 0
 		{return true;} // If no arguments are given, go to interavtive mode
 		
 	else if (argc > 1)
 	{
-		// Transitions all the arguments from char** to vector
-		for (int i = 1; i < argc; i++) 
+		// Initialize the ArguentParser
+		ArgsParser::load(argc, argv);
+		
+		// As long as there are some args left
+		while (ArgsParser::argsLeft() != 0)
 		{
-			args.push_back(argv[i]);
-		}
+		
+			if      (ArgsParser::flag() == "h" ||
+			 	     ArgsParser::flag() == "help")
+					{args::help();}
+		
+			else if (ArgsParser::flag() == "r" || 
+					 ArgsParser::flag() == "read")
+					{
+						if (ArgsParser::parameter().size() > 0)
+						{
+							args::read(ArgsParser::parameter());
+						}
+						else // If the user didn't give a param, ask for it
+						{
+							string filename;
+							
+							cout << "Please enter the name of the file " <<
+							"you wish to open:" << endl;
+								
+							getline(cin, filename);
+							
+							if (!filename.empty())
+							{							
+								args::read(filename);
+							}
+						}
+					}
+		
+			else if (ArgsParser::flag() == "a" ||
+					 ArgsParser::flag() == "add")
+					{/*args::add();*/}
+		
+			else if (ArgsParser::flag() == "v" ||
+					 ArgsParser::flag() == "version")
+					{args::version();}
 
-		if (args[0] == "-h" ||
-		 	args[0] == "--help")
-				{args::help();}
-		
-		else if ((args[0] == "-r" || args[0] == "--read") &&
-		 		  args.size() > 1)
-				{args::read(args[1]);}
-		
-		else if (args[0] == "-a" ||
-				 args[0] == "--add")
-				{/*args::add();*/}
-		
-		else if (args[0] == "-v" ||
-				 args[0] == "--version")
-				{args::version();}
-
-		// If an argument is unknown, inform the user about it
-		else 
-		{
-			cout << "Unknown argument '" + args[0] + "'" << endl;
-			args.erase(args.begin());
+			// If an argument is unknown, inform the user about it
+			else 
+			{
+				cout << "Unknown argument '" + ArgsParser::error() + "'" << endl;
+			}
+			
+			// Remove the flag (and param, if any) that were used previously
+			ArgsParser::remove();
 		}
 	}
 
@@ -64,9 +81,21 @@ namespace args
 		
 	}
 	
+	void config()
+	{
+		
+	}
+	
 	void help()
 	{	
-		cout << "";
+		cout << "Available commands:\n\n"
+		
+			 << endl;
+	}
+	
+	void newDict()
+	{
+		
 	}
 	
 	void read(string file)

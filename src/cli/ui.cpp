@@ -1,10 +1,7 @@
 /* *** Copyright 2010 Teemu Vasama ***
- * 		This file is part of Ords, which is free software so you can
- * redistribute it and modify it under the terms and conditions of the GPLv3,
- * (GNU General Public License version 3) made by the FSF.
- * 		There is NO WARRANTY whatsoever (See LICENSE for details).
- * 		You can find the GPLv3 license in the LICENSE file or
- * by going to <http://www.gnu.org/licenses/> */
+ * This program is licensed under the terms of the GPLv3 license.
+ * You can find it in the LICENSE file or from <http://www.gnu.org/licenses/>.
+ * This software comes with NO WARRANTY WHATSOEVER! */
 
 #include "ui.h"
 
@@ -36,31 +33,33 @@ bool parse(string input)
 	{
 		return true;
 	}
+	
 	vector<string> tokens = split(input, " ");
 	
 	if (tokens.size() == 1)
 	{	
 		if 		(tokens[0] == "exit") 	{return false;}	// Fall back to main()
 		
+		else if (tokens[0] == "config")	{ui::config();}
+		
 		else if (tokens[0] == "def" ||
 			   	 tokens[0] == "define")	{ui::define();}
+			
+		else if (tokens[0] == "help")	{ui::help();}
 		
 		else if (tokens[0] == "ls" ||
 				 tokens[0] == "list")	{ui::list();}
 				
 		else if (tokens[0] == "lsd")	{ui::listDicts();}
 		else if (tokens[0] == "new")	{ui::newDict();}
-		else if (tokens[0] == "use")	{ui::use();}
 		else if (tokens[0] == "open")	{ui::open();}
-		else if (tokens[0] == "help")	{ui::help();}
+		else if (tokens[0] == "use")	{ui::use();}
 		
 		// The first argument 'language' must be zero-length
 		// because no language was given
 		else if (tokens[0] == "rask")	{ui::ask("", true);}	// To reverse
 		else if (tokens[0] == "ask")	{ui::ask("", false);}	// or not
 		
-		else if (tokens[0] == "config")	{ui::config();}
-
 		else
 		{
 			cout << "Command '" << tokens[0] << "' doesn't exist. Type help " <<
@@ -69,26 +68,27 @@ bool parse(string input)
 	}
 	else if (tokens.size() > 1) // Cmds that have arguments (e.g. 'open test')
 	{
-		if (tokens[0] == "list" || tokens[0] == "ls")
+		// Don't ask in reverse, mainly because it doesn't make any sense with Defintions
+		if 		(tokens[0] == "ask")	{ui::ask(tokens[1], false);}
+		
+		else if (tokens[0] == "def" ||
+				 tokens[0] == "define")	{ui::define(tokens[1]);}
+				
+		else if (tokens[0] == "list" || tokens[0] == "ls")
 		{
 			if (tokens[1] == "-d")		{ui::listDicts();}
 			else						{ui::listFile(tokens[1]);}
 		}
 		else if (tokens[0] == "new")	{ui::newDict(tokens[1]);}
-		else if (tokens[0] == "use")	{ui::use(tokens[1]);}
 		else if (tokens[0] == "open")	{ui::open(tokens[1]);}
+		else if (tokens[0] == "use")	{ui::use(tokens[1]);}
 		
-		else if (tokens[0] == "def" ||
-				 tokens[0] == "define")	{ui::define(tokens[1]);}
-
-		// Don't ask in reverse, mainly because it doesn't make any sense with Defintions
-		else if (tokens[0] == "ask")	{ui::ask(tokens[1], false);}
-
 		else
 		{
 			cout << "Command '" << tokens[0] << "' doesn't exist. " <<
 				"Type 'help' to see all the commands." << endl;
 		}
 	}
+	
 	return true;
 }
