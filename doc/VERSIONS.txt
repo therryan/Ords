@@ -1,0 +1,3 @@
+0.4.3, released on Thursday, 27.4.2010
+	+ Arguments now work
+	* Fixed the 'ask'-command
