@@ -5,8 +5,7 @@
 
 #include "settings.h"
 
-const string Settings::_versionText = "21.05.2010";
-const float Settings::_versionNumber = 0.4;
+const float Settings::_versionNumber = 0.43;
 string Settings::_dataPath = "";
 
 bool Settings::init()
@@ -152,9 +151,4 @@ string Settings::dataPath(string file)
 float Settings::version()
 {
 	return _versionNumber;
-}
-
-string Settings::versionInfo()
-{
-	return _versionText;
 }

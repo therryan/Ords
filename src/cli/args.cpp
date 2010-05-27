@@ -149,8 +149,7 @@ namespace args
 	
 	void info()
 	{
-		cout << "ords version:" << Settings::version() << endl;
-		cout << "modified last on: " << Settings::versionInfo() << endl;
+		cout << "Ords version " << Settings::version() << endl;
 	}
 	
 	void newDict(string dict)

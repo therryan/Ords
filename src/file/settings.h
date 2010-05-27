@@ -22,7 +22,6 @@ class Settings
 		static string wizard();
 		
 		static const float _versionNumber;
-		static const string _versionText;
 		static string _dataPath;
 				
 	public:
@@ -34,7 +33,6 @@ class Settings
 		static string configPath();
 		static string dataPath(string file = "");
 		static float version();
-		static string versionInfo();
 };
 
 #endif
