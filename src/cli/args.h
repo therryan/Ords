@@ -13,6 +13,7 @@
 #include "../file/file.h"
 #include "../file/settings.h"
 #include "args_parser.h"
+#include "uifuncs.h"
 
 // If should continue, return true
 bool parseArgs(int argc, char *argv[]);
@@ -20,13 +21,13 @@ bool parseArgs(int argc, char *argv[]);
 // A namespace that contains all the functions that take care of a certain switch
 namespace args 
 {
-	void add(string content);
+	void add();
 	void ask(string lang, bool reverse);
 	void config();
 	void help();
-	void newDict();
+	void info();
+	void newDict(string dict = "");
 	void read(string target);
-	void version();
 }
 
 #endif

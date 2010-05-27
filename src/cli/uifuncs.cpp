@@ -11,8 +11,18 @@ namespace ui
 	{
 		srand(time(NULL));
 
+		if (Collection::size() == 0)
+		{
+			cout << "There are no dictionaries, please open one: ";
+			string filename;
+			getline(cin, filename);
+			
+			Collection::load(filename);
+		}
+		
 		// Get a Question-object from the current dictionary
 		Question quest = Collection::getQuestion();
+		//cout << quest.repr();
 		
 		// When 'rask' was used
 		if (reverse == true)
@@ -245,7 +255,6 @@ namespace ui
 			string data = readData(Settings::dataPath(file));
 									
 			vector<string> dict = split(data, "\n");
-			cout << endl;
 						
 			for (unsigned int i = 0; i < dict.size(); i++)
 			{
@@ -302,44 +311,44 @@ namespace ui
 
 	void help()
 	{
-		cout << "\t" << "ask" << "\n"
-			 	<< "\t\tAsks all the definitions in the current dictionary\n"
+		cout << "ask" << "\n"
+			 	<< "\tAsks all the definitions in the current dictionary\n"
 			 
-			 << "\t" << "config" << "\n"
-			 	<< "\t\tAllows you to change the settings without having to modify the config file\n"
+			 << "config" << "\n"
+			 	<< "\tAllows you to change the settings without having to modify the config file\n"
 
-			 << "\t" << "rask" << "\n" 
-			 	<< "\t\tAsks Y->X instead of X->Y\n"
+			 << "rask" << "\n" 
+			 	<< "\tAsks Y->X instead of X->Y\n"
 			
-			 << "\t" << "def, define [word|term]" << "\n" 
-				<< "\t\tDefine a new word or term. If no argument given, go\n"
-				<< "\t\tto continuous input mode\n"
+			 << "def, define [word|term]" << "\n" 
+				<< "\tDefine a new word or term. If no argument given, go\n"
+				<< "\tto continuous input mode\n"
 				
-			 << "\t" << "exit" << "\n"
-			 	<< "\t\tQuits the program, saving all files\n"
+			 << "exit" << "\n"
+			 	<< "\tQuits the program, saving all files\n"
 			
-			 << "\t" << "help" << "\n"
-			 	<< "\t\tDisplays this message\n"
+			 << "help" << "\n"
+			 	<< "\tDisplays this message\n"
 			
-			 << "\t" << "list, ls [file]" << "\n"
-			 	<< "\t\tLists all definitions in the current dictionary.\n"
-				<< "\t\tIf the argument is given, list all the definitions\n"
-				<< "\t\tin that file\n"
+			 << "list, ls [file]" << "\n"
+			 	<< "\tLists all definitions in the current dictionary.\n"
+				<< "\tIf the argument is given, list all the definitions\n"
+				<< "\tin that file\n"
 			
-			 << "\t" << "lsd|ls -d" << "\n"
-			 	<< "\t\tList dictionaries\n"
+			 << "lsd|ls -d" << "\n"
+			 	<< "\tList dictionaries\n"
 			
-			 << "\t" << "new [title]" << "\n"
-			 	<< "\t\tOpens a new dictionary with the argument as the title.\n"
-				<< "\t\tIf no arguments are given, ask for the title\n"
+			 << "new [title]" << "\n"
+			 	<< "\tOpens a new dictionary with the argument as the title.\n"
+				<< "\tIf no arguments are given, ask for the title\n"
 			
-			 << "\t" << "open [file]" << "\n"
-			 	<< "\t\tTries to open the file specified as the argument.\n"
-				<< "\t\tIf no argument is given, ask for the file to open\n"
+			 << "open [file]" << "\n"
+			 	<< "\tTries to open the file specified as the argument.\n"
+				<< "\tIf no argument is given, ask for the file to open\n"
 			
-			 << "\t" << "use [dictionary]" << "\n"
-			 	<< "\t\tSwitch the dictionary to 'dictionary'.\n"
-				<< "\t\tIf no argument is given, ask for the dictionary\n"
+			 << "use [dictionary]" << "\n"
+			 	<< "\tSwitch the dictionary to 'dictionary'.\n"
+				<< "\tIf no argument is given, ask for the dictionary\n"
 			 
 			 << endl;
 	}

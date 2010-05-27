@@ -35,3 +35,6 @@
 	- Definitions are nearly completely supported, with 'ask'
 	! Version 0.4 RELEASED
 	- Implemented an interactive Settings wizard
+
+2010-05-25:
+	- New way of interpreting arguments

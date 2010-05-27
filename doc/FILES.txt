@@ -47,5 +47,5 @@ src/utils/
 src/ords.cpp:
 	Sisältää 'main()'-funktion ja siten kutsuu kaikki muut
 		
-info/:
+doc/:
 	Contains all the documentation and guides

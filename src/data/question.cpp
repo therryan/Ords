@@ -37,7 +37,7 @@ bool Question::containsType(string type)
 	
 	for (unsigned int i = 0; i < _dict.size(); i++)
 	{
-		if (_dict[i].type () == type)
+		if (_dict[i].type() == type)
 		{
 			return true;
 		}
@@ -90,7 +90,7 @@ string Question::answer()
 	if (_dict.size() > 0 && _dict[_elem].type() == "Definition")
 	{
 		//return _dict[_elem].getWord(_lang);
-		return "MULTIPLE ANSWERS AVAILABE";
+		//return "MULTIPLE ANSWERS AVAILABE";
 	}
 
 	return "";
@@ -138,5 +138,15 @@ void Question::remove()
 	if (_dict.size() > 0)
 	{
 		_dict.erase(_dict.begin() + _elem);
+	}
+}
+
+string Question::repr()
+{
+	string str;
+	
+	for (unsigned int i = 0; i < _dict.size(); i++)
+	{
+		str += _dict[i].repr() + "\n";
 	}
 }

@@ -23,20 +23,20 @@
 			<string>../data</string>
 		</dict>
 		<dict>
-			<key>expanded</key>
-			<true/>
-			<key>name</key>
-			<string>info</string>
-			<key>regexFolderFilter</key>
-			<string>!.*/(\.[^/]*|CVS|_darcs|_MTN|\{arch\}|blib|.*~\.nib|.*\.(framework|app|pbproj|pbxproj|xcode(proj)?|bundle))$</string>
-			<key>sourceDirectory</key>
-			<string>../info</string>
-		</dict>
-		<dict>
 			<key>filename</key>
 			<string>../README.markdown</string>
 			<key>lastUsed</key>
 			<date>2010-05-21T06:22:26Z</date>
+		</dict>
+		<dict>
+			<key>expanded</key>
+			<true/>
+			<key>name</key>
+			<string>doc</string>
+			<key>regexFolderFilter</key>
+			<string>!.*/(\.[^/]*|CVS|_darcs|_MTN|\{arch\}|blib|.*~\.nib|.*\.(framework|app|pbproj|pbxproj|xcode(proj)?|bundle))$</string>
+			<key>sourceDirectory</key>
+			<string>../doc</string>
 		</dict>
 	</array>
 	<key>fileHierarchyDrawerWidth</key>
@@ -46,6 +46,6 @@
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{0, 4}, {856, 1174}}</string>
+	<string>{{0, 4}, {787, 1174}}</string>
 </dict>
 </plist>

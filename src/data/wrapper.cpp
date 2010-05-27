@@ -25,6 +25,20 @@ Wrapper::Wrapper(Conjugation conj)
 	_type = "Conjugation";
 }
 
+string Wrapper::get()
+{
+	string content;
+	
+	if (_type == "Definition")
+	{
+		
+	}
+	else if (_type == "DefinitionTerm")
+	{
+		content += _dt.getTerm() + "\n" + _dt.getDescr();
+	}
+}
+
 string Wrapper::getTerm()
 {
 	if (_type == "DefinitionTerm")

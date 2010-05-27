@@ -40,6 +40,8 @@ class Question
 		
 		// Removes the previously asked question
 		void remove();
+		
+		string repr();
 };
 
 #endif

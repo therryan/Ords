@@ -52,6 +52,9 @@ bool Dictionary::load(string file)
 	{
 		// We must have this so that we can add to this temporarily and add it later
 		Definition *definition = new Definition();
+		
+		// This thing is here to prevent Defs from getting added if they don't exist
+		bool addDef = false;
 		vector<string> def = split(dict[i], ";");
 		
 		// Work on every pair		
@@ -61,7 +64,7 @@ bool Dictionary::load(string file)
 			
 			if (word.size() == 2) // Must contain two elements
 			{
-				// DTs are in the form of X:>Z;
+				// DTs are in the form of X:>Y;
 				if (word[1].substr(0, 1) == ">")
 				{
 					_dict.push_back(Wrapper(DefinitionTerm(word[0], word[1].substr(1))));
@@ -70,12 +73,17 @@ bool Dictionary::load(string file)
 				// Defs are in the form of X:Y;
 				else
 				{
+					addDef = true;	// Go on and actually add the def the the dict
 					definition->add(Word(word[1], word[0]));
 				}
 			}						
 		}
 		
-		_dict.push_back(Wrapper(*definition));
+		// Only if the def was found
+		if (addDef)
+		{
+			_dict.push_back(Wrapper(*definition));
+		}
 		
 		delete definition;	
 	}

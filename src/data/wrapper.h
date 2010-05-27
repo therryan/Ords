@@ -26,6 +26,8 @@ class Wrapper
 		Wrapper(Definition def);
 		Wrapper(DefinitionTerm dt);
 		Wrapper(Conjugation conj);
+		
+		string get();
 
 	 	/* For DefinitionTerm */
 		string getTerm();
