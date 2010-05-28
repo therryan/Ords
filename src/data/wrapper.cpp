@@ -62,6 +62,8 @@ string Wrapper::getTranslation(string word)
 	{
 	
 	}
+
+	return "";
 }
 
 string Wrapper::getTerm()

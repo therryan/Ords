@@ -131,7 +131,8 @@ namespace ui
 			open();
 		}
 
-		string translation = Collection::translate(word);
+		cout << "Translation for '" << word << "' is: " << endl
+			 << "\t" << Collection::translate(word) << endl;
 	}
 
 	void use(string title)

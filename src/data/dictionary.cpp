@@ -111,14 +111,16 @@ void Dictionary::add(Wrapper wrap)
 
 string Dictionary::translate(string word)
 {
-	string translation;
-
 	for (unsigned int i = 0; _dict.size(); i++)
 	{
-	
+		if (_dict[i].getTranslation(word).length() > 0)
+		{
+			cout << "T:" << _dict[i].getTranslation(word) << endl;
+			return _dict[i].getTranslation(word);
+		}
 	}
 
-	return translation;
+	return "";
 }
 
 // Calls repr() on all wrappers 
