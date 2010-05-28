@@ -36,6 +36,8 @@ class Collection
 		static void add(Definition def);	// Add to current dict
 		static void add(DefinitionTerm dt);	// -''-
 
+		static string translate(string word);
+
 		static void remove();				// Based on same kind of a unique id?
 		static string dictionaries();		// Returns names of all dictionaries
 		static string definitions();		// Calls repr() on all dictionaries

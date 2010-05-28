@@ -149,4 +149,6 @@ string Question::repr()
 	{
 		str += _dict[i].repr() + "\n";
 	}
+
+	return str;
 }

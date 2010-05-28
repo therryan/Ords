@@ -24,6 +24,7 @@ namespace ui
 	void ask(string language = "",  bool reverse = false);
 	void open(string file = "");
 	void newDict(string title = "");
+	void translate(string word = "");
 	void use(string title = "");
 	void define(string choice = "");
 		void defDefinition(Definition &def);
@@ -37,3 +38,4 @@ namespace ui
 }
 
 #endif
+

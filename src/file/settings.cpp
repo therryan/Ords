@@ -41,7 +41,6 @@ map<string, string> Settings::parse(string data)
 	
 	for (unsigned int i = 0; i < directives.size(); i++)
 	{
-		//cout << directives[i] << endl;
 		vector<string> tmp = split(directives[i], "=");
 				
 		if (tmp.size() == 2)
@@ -58,7 +57,7 @@ map<string, string> Settings::parse(string data)
 
 void Settings::set(map<string, string> config)
 {
-	Settings::_dataPath = config["dataPath"] + "/";
+	Settings::_dataPath = config["dataPath"];
 }
 
 bool Settings::save()
@@ -72,7 +71,7 @@ string Settings::repr()
 {
 	string settings;
 	
-	settings += "datapath=" + Settings::dataPath();
+	settings += "datapath=" + Settings::_dataPath;
 	
 	return settings;
 }
@@ -136,15 +135,16 @@ string Settings::configPath()
 	return home + "/.ords.conf";
 }
 
+// There are '/'s so that if there's no slash in 'dataPath', thw world won't come to an end 
 string Settings::dataPath(string file)
 {
 	if (file.length() == 0)
 	{
-		return _dataPath;
+		return _dataPath + "/";
 	}
 	else
 	{
-		return _dataPath + file + ".ords";
+		return _dataPath + "/" + file + ".ords";
 	}
 }
 
@@ -152,3 +152,4 @@ float Settings::version()
 {
 	return _versionNumber;
 }
+

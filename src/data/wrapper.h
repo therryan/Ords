@@ -28,6 +28,7 @@ class Wrapper
 		Wrapper(Conjugation conj);
 		
 		string get();
+		string getTranslation(string word);
 
 	 	/* For DefinitionTerm */
 		string getTerm();

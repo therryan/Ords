@@ -1,9 +1,9 @@
 OBJECTS = args.o args_parser.o collection.o conjugation.o definition.o def_term.o dictionary.o file.o init.o ords.o plaintext.o question.o settings.o ui.o uifuncs.o utils.o wrapper.o
 
-ords: $(OBJS)
-	g++ -o ords $(OBJS)
+ords: $(OBJECTS)
+	g++ -o ords $(OBJECTS)
 
-ords.o: ords.cpp file/file.h cli/cli.h
+ords.o: ords.cpp file/file.h
 	g++ -Wall -pedantic -c ords.cpp
 	
 file.o: file/file.cpp file/file.h
@@ -55,4 +55,4 @@ utils.o: utils/utils.cpp utils/utils.h
 	g++ -Wall -pedantic -c utils/utils.cpp
 
 clean:
-	rm ords $(OBJS)
+	rm ords $(OBJECTS)

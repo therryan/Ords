@@ -33,7 +33,7 @@ class Dictionary
 		void add(Wrapper wrap);
 
 		//void remove(string word);			// Removes one definition
-		//string translate(string word);	// Gets the translation of a given word
+		string translate(string word);		// Gets the translation of a given word
 		string repr();						// Prints out all definitions in a human-readable way
 };
 

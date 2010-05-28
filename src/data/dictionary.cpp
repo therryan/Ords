@@ -109,6 +109,18 @@ void Dictionary::add(Wrapper wrap)
 	_dict.push_back(wrap);
 }
 
+string Dictionary::translate(string word)
+{
+	string translation;
+
+	for (unsigned int i = 0; _dict.size(); i++)
+	{
+	
+	}
+
+	return translation;
+}
+
 // Calls repr() on all wrappers 
 string Dictionary::repr()
 {

@@ -82,6 +82,19 @@ void Collection::add(DefinitionTerm dt)
 	}
 }
 
+string Collection::translate(string word)
+{
+	string translation;
+	translation = _collection[_currentDict].translate(word);
+
+	return translation;
+}
+
+void Collection::remove(/*Some argument here?*/)
+{
+	
+}
+
 // Gets the *names* of all the dictionaries present
 // Also shows which dict is the current one
 string Collection::dictionaries()

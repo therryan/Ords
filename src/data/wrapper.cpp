@@ -37,6 +37,31 @@ string Wrapper::get()
 	{
 		content += _dt.getTerm() + "\n" + _dt.getDescr();
 	}
+
+	return content;
+}
+
+string Wrapper::getTranslation(string word)
+{
+	if (_type == "Definition")
+	{
+	
+	}
+	else if (_type == "DefinitionTerm")
+	{
+		if (_dt.getTerm() == word)
+		{
+			return _dt.getDescr();
+		}
+		else if (_dt.getDescr() == word)
+		{
+			return _dt.getTerm();
+		}
+	}
+	else if (_type == "Conjugation")
+	{
+	
+	}
 }
 
 string Wrapper::getTerm()

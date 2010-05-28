@@ -39,7 +39,6 @@ bool parse(string input)
 	if (tokens.size() == 1)
 	{	
 		if 		(tokens[0] == "exit") 	{return false;}	// Fall back to main()
-		
 		else if (tokens[0] == "config")	{ui::config();}
 		
 		else if (tokens[0] == "def" ||
@@ -53,6 +52,10 @@ bool parse(string input)
 		else if (tokens[0] == "lsd")	{ui::listDicts();}
 		else if (tokens[0] == "new")	{ui::newDict();}
 		else if (tokens[0] == "open")	{ui::open();}
+
+		else if (tokens[0] == "translate" ||
+				 tokens[0] == "find")	{ui::translate();}
+
 		else if (tokens[0] == "use")	{ui::use();}
 		
 		// The first argument 'language' must be zero-length
@@ -81,6 +84,10 @@ bool parse(string input)
 		}
 		else if (tokens[0] == "new")	{ui::newDict(tokens[1]);}
 		else if (tokens[0] == "open")	{ui::open(tokens[1]);}
+
+		else if (tokens[0] == "translate" ||
+				 tokens[0] == "find")	{ui::translate(tokens[1]);}
+
 		else if (tokens[0] == "use")	{ui::use(tokens[1]);}
 		
 		else

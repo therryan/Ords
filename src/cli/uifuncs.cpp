@@ -115,6 +115,25 @@ namespace ui
 		Collection::add(Dictionary(title));
 	}
 	
+	void translate(string word)
+	{
+		if (word.empty())
+		{
+			cout << "Which word do you want to translate?" << endl;
+			string tmp;
+			getline(cin, tmp);
+			word = tmp;
+		}
+
+		if (Collection::size() == 0)
+		{
+			cout << "Please open a dictionary" << endl;
+			open();
+		}
+
+		string translation = Collection::translate(word);
+	}
+
 	void use(string title)
 	{
 		// We don't want to try use a dict if there are none
