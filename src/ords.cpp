@@ -4,12 +4,14 @@
  * This software comes with NO WARRANTY WHATSOEVER! */
 
 #include "utils/utils.h"
-
 #include "file/file.h"
 #include "init/init.h"
-
 #include "cli/args.h"
 #include "cli/ui.h"
+
+#ifdef WITH_GUI
+#	include "qt/qt_main.h"
+#endif
 
 int main(int argc, char *argv[])
 {		
@@ -19,6 +21,11 @@ int main(int argc, char *argv[])
 		cerr << "Init failed" << endl;
 		exit(EXIT_FAILURE);
 	}
+	
+	// If was compiled with the flag WITH_GUI, the QT stuff is included
+	#ifdef WITH_GUI
+		return QtMain(argc, argv);
+	#endif
 			
 	// If there are some arguments, parse them and skip the interactive mode
 	if (!parseArgs(argc, argv))	{}
