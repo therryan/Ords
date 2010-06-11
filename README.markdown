@@ -13,6 +13,8 @@ To install, just go to the folder and `make`.
 Then copy the resulting binary to the place that you want.
 `make install` moves the binary by default to `~`. `make install "LOCATION=/usr/bin"` will install the application there.
 
+To install with the Qt GUI, use the command `make WITH_GUI=TRUE`.
+
 ## Usage
 
 Currently, Ords supports two ways of interaction: the interactive mode and the argument-interface.

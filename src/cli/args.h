@@ -13,6 +13,7 @@
 #include "../file/file.h"
 #include "../file/settings.h"
 #include "args_parser.h"
+#include "ui.h"
 #include "uifuncs.h"
 
 // If should continue, return true

@@ -26,7 +26,7 @@
 			<key>filename</key>
 			<string>../README.markdown</string>
 			<key>lastUsed</key>
-			<date>2010-05-21T06:22:26Z</date>
+			<date>2010-06-08T16:41:43Z</date>
 		</dict>
 		<dict>
 			<key>expanded</key>
@@ -40,12 +40,12 @@
 		</dict>
 	</array>
 	<key>fileHierarchyDrawerWidth</key>
-	<integer>171</integer>
+	<integer>160</integer>
 	<key>metaData</key>
 	<dict/>
 	<key>showFileHierarchyDrawer</key>
 	<true/>
 	<key>windowFrame</key>
-	<string>{{0, 4}, {787, 1174}}</string>
+	<string>{{0, 4}, {782, 1174}}</string>
 </dict>
 </plist>

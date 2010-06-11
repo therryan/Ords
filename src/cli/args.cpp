@@ -84,6 +84,14 @@ bool parseArgs(int argc, char *argv[])
 							}
 						}
 					}
+					
+			// Open the interactive mode and then skip the interactive mode 
+			else if (ArgsParser::flag() == "nogui" ||
+				     ArgsParser::flag() == "interactive")
+				{
+					startUI();
+					return false;
+				}
 
 			// If an argument is unknown, inform the user about it
 			else 

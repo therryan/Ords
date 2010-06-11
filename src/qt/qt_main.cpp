@@ -8,14 +8,9 @@
 int QtMain(int argc, char *argv[])
 {
 	QApplication app(argc, argv);
-	
-	QPushButton hello("Hello World!");
-	hello.show();
-	
+		
+	Counter counter;	
+	counter.show();
+		
 	return app.exec();
-}
-
-int main (int argc, char *argv[])
-{
-	return QtMain(argc, argv);
 }

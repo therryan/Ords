@@ -7,7 +7,6 @@
 #define QT_MAIN
 
 #include <QApplication>
-#include <QPushButton>
 
 #include "../utils/utils.h"
 

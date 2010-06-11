@@ -7,7 +7,7 @@ QT_LFLAGS = -F/Library/Frameworks -L/Library/Frameworks -framework QtGui -framew
 CPPFLAGS = -Wall -Werror -pedantic -ansi
 LFLAGS =
 LOCATION = ~
-WITH_GUI =
+NOGUI = FALSE
 
 # Assigning the macro that contains all the necessary object files
 CLI_OBJS = args.o args_parser.o ui.o uifuncs.o
@@ -18,7 +18,7 @@ QT_OBJS = qt_main.o
 
 OBJECTS = $(MISC_OBJS) $(CLI_OBJS) $(DATA_OBJS) $(FILE_OBJS)
 
-ifeq ($(WITH_GUI), TRUE)
+ifeq ($(NOGUI), FALSE)
 	OBJECTS += $(QT_OBJS)
 	LFLAGS += $(QT_LFLAGS)
 endif
@@ -29,10 +29,10 @@ ords: $(OBJECTS)
 
 # The rule that compiles all the files
 ords.o: ords.cpp
-ifeq ($(WITH_GUI), TRUE)
-	$(CPP) $(CPPFLAGS) $(QT_CPPFLAGS) -DWITH_GUI -c $< -o $@
+ifeq ($(NOGUI), FALSE)
+	$(CPP) $(CPPFLAGS) $(QT_CPPFLAGS) -c $< -o $@
 else
-	$(CPP) $(CPPFLAGS) -c $< -o $@
+	$(CPP) $(CPPFLAGS) -DNOGUI -c $< -o $@
 endif
 
 %.o: cli/%.cpp
@@ -55,7 +55,8 @@ qt_main.o: qt/qt_main.cpp qt/qt_main.h
 
 # For cleaning the files, remove everything that was compiled
 clean:
-	rm ords *.o
+	-rm ords *.o
+	-rm -rf Ords.app
 	
 # For installing, move the binary file to the location specified
 install:

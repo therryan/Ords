@@ -9,7 +9,7 @@
 #include "cli/args.h"
 #include "cli/ui.h"
 
-#ifdef WITH_GUI
+#ifndef NOGUI
 #	include "qt/qt_main.h"
 #endif
 
@@ -21,17 +21,20 @@ int main(int argc, char *argv[])
 		cerr << "Init failed" << endl;
 		exit(EXIT_FAILURE);
 	}
-	
-	// If was compiled with the flag WITH_GUI, the QT stuff is included
-	#ifdef WITH_GUI
-		return QtMain(argc, argv);
-	#endif
 			
 	// If there are some arguments, parse them and skip the interactive mode
 	if (!parseArgs(argc, argv))	{}
 	
-	// If there were no arguments, start the interactive mode
-	else {startUI();}
+	else
+	{
+		// If was compiled with the flag NOGUI, the QT stuff is NOT included
+#ifndef NOGUI
+		return QtMain(argc, argv);
+#endif	
+
+		// If there were no arguments, start the interactive mode
+		startUI();
+	}
 	
 	// Deinit worked, closing down...
 	if (deinit())
